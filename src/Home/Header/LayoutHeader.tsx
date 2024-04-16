@@ -1,6 +1,3 @@
-
-import { Element, Link } from 'react-scroll';
-import logo from './Assets/logo.png'
 import { Navar } from './Components/Navar';
 import { Header } from './Components/Header';
 export const LayoutHeader = () => {
