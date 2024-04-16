@@ -3,7 +3,7 @@ import { Element } from "react-scroll"
 export const HomeFototeca = () => {
   return (
     <Element name="fototeca">
-        <section className=" bg-cover w-full h-screen flex flex-row gap-5 p-10 justify-between items-start">
+        <section className=" bg-cover w-full h-auto flex flex-row gap-5 p-10 justify-between items-start">
             {/* opciones */}
             <div className="w-2/3 flex flex-col gap-4">
                 <div className="w-full flex h-auto flex-row  bg-[#1D2432] p-4 items-center justify-between">
