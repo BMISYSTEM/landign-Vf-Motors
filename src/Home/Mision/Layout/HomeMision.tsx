@@ -1,6 +1,5 @@
 import { Element } from "react-scroll"
 import mision from '../Assets/mission.png'
-import fondo from '../Assets/carrossvg.png'
 import { motion } from "framer-motion"
 
 export const HomeMision = () => {
