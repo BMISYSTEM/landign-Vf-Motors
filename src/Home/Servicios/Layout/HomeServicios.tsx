@@ -7,7 +7,6 @@ import asesorios from '../Assets/asesorios.png'
 import inventario from '../Assets/inventario.png'
 import soat from '../Assets/soat.png'
 import traspasos from '../Assets/traspasos.png'
-import  fondo  from '../Assets/fondo.png'
 import { motion } from 'framer-motion';
 export const HomeServicios = () => {
   return (
@@ -28,7 +27,7 @@ export const HomeServicios = () => {
                 </motion.div>
             </div>
             {/* imagen de fondo */}
-            <img src={fondo} alt="fondo servicios" className='w-full h-full '/>
+            {/* <img src={fondo} alt="fondo servicios" className='w-full h-full '/> */}
         </section>
     </Element>
   )
