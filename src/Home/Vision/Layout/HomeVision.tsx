@@ -2,7 +2,6 @@ import { Element } from "react-scroll";
 import mision from "../Assets/mission.png";
 import { motion } from 'framer-motion';
 
-import fondo from '../Assets/cuadricula.png'
 export const HomeVision = () => {
   return (
     <Element name="vision">
