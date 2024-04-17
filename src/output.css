@@ -847,6 +847,10 @@ video {
   background-image: url('./public/Imagenes/cuadricula.png');
 }
 
+.bg-\[url\(\'\/Imagenes\/cuadricula\.png\'\)\] {
+  background-image: url('/Imagenes/cuadricula.png');
+}
+
 .bg-cover {
   background-size: cover;
 }
