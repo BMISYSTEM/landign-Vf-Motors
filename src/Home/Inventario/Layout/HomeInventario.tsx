@@ -1,5 +1,5 @@
 import { Element } from "react-scroll";
-import { Respuesta, Succe, useInventario } from "../Hooks/useInventario";
+import { Respuesta, useInventario } from "../Hooks/useInventario";
 import { useEffect, useState } from "react";
 import { TarjetaVehiculo } from "../Components/TarjetasVehiculos/component/TarjetaVehiculo";
 import { Imagenes } from "../Components/TarjetasVehiculos/component/Imagenes";
@@ -64,8 +64,8 @@ export const HomeInventario = () => {
           </div>
           {/* resultado */}
           <div className="w-full h-full grid grid-cols-4 gap-5 ">
-            {vehiculos?.succes.map((vehiculo) => (
-              <TarjetaVehiculo>
+            {vehiculos?.succes.map((vehiculo,index) => (
+              <TarjetaVehiculo key={index}>
                 <Imagenes
                   foto1={"https://public.cartmots.com" + vehiculo.foto1}
                   foto2={"https://public.cartmots.com" + vehiculo.foto2}

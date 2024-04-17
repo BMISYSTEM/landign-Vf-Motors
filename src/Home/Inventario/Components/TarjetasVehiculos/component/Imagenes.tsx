@@ -12,7 +12,6 @@ interface imagen{
 // img sera un arreglo de imagenes
 export const Imagenes = (imagenes:imagen) => {
   const [visible,SetVisible] = useState(3)
-  console.log(imagenes.foto1)
   const moveimagen = (numero:number) =>{
     console.log('se mueve')
     if(numero > 0){
