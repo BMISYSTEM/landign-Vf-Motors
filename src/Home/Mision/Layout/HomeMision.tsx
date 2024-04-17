@@ -2,12 +2,16 @@ import { Element } from "react-scroll"
 import mision from '../Assets/mission.png'
 import { motion } from "framer-motion"
 
+// imagen 
+// import fondo from '../Assets/cuadrícula verde.png'
 export const HomeMision = () => {
   return (
     <Element name="mision">
-        <section className={`relative w-full h-auto flex flex-row  gap-5 p-10 justify-between items-center overflow-hidden `}>
-            {/* <img src={fondo} alt="fondo" className="w-full h-full bg-opacity-20"/> */}
-            <div className=" flex flex-row items-center p-5 ">
+        <section className={`relative w-full h-auto flex flex-row  gap-5  justify-between items-center overflow-hidden `}>
+            {/* <img src={fondo} alt="fondo" className="absolute w-full  bg-opacity-20" style={{
+            maskImage: 'linear-gradient(black 90%,transparent 95%)',
+        }}/> */}
+            <div className="  flex flex-row items-center p-5 ">
                 {/* imagen */}
                 <motion.div initial={{x:-100 , opacity:0}} transition={{duration:1 }} whileInView={{ x:0 , opacity:1}} 
                 className="w-full flex items-end justify-center ">

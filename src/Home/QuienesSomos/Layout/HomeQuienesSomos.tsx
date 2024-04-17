@@ -4,7 +4,7 @@ import { motion } from 'framer-motion';
 export const HomeQuienesSomos = () => {
   return (
     <Element name="quienes">
-        <section className="w-full h-auto flex flex-col gap-2 ">
+        <section className="w-full h-auto flex flex-col gap-2  ">
             {/* texto */}
             <motion.div initial={{y:100 , opacity:0}} transition={{duration:1 }} whileInView={{ y:0 , opacity:1}}
             className="shadow-2xl shadow-green-300/20 w-[50rem] text-justify p-3 border-2 rounded-xl border-green-500 ml-[15rem] mt-10 z-10 bg-[#1D2432]">
