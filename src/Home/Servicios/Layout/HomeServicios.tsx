@@ -8,6 +8,7 @@ import inventario from '../Assets/inventario.png'
 import soat from '../Assets/soat.png'
 import traspasos from '../Assets/traspasos.png'
 import  fondo  from '../Assets/fondo.png'
+import { motion } from 'framer-motion';
 export const HomeServicios = () => {
   return (
     <Element name='servicios'>
@@ -15,7 +16,8 @@ export const HomeServicios = () => {
             <div className='absolute flex flex-col gap-5 w-full h-full items-center'>
                 <h4 className='text-3xl font-bold text-white text-center'>Servicios</h4>
                 {/* servicios */}
-                <div className='w-2/3 h-full flex flex-row gap-5 justify-center flex-wrap '>
+                <motion.div initial={{opacity:0}} transition={{duration:3 }} whileInView={{opacity:1}}
+                className='w-2/3 h-full flex flex-row gap-5 justify-center flex-wrap '>
                     {/* tarjeta */}
                     <TarjetasServicios label='Prestamo' imagen={prestamo}/>
                     <TarjetasServicios label='Inventario' imagen={inventario}/>
@@ -23,7 +25,7 @@ export const HomeServicios = () => {
                     <TarjetasServicios label='Soat' imagen={soat}/>
                     <TarjetasServicios label='Credito Vehicular' imagen={credito}/>
                     <TarjetasServicios label='Asesorios' imagen={asesorios}/>
-                </div>
+                </motion.div>
             </div>
             {/* imagen de fondo */}
             <img src={fondo} alt="fondo servicios" className='w-full h-full '/>

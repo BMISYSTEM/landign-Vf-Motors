@@ -1,11 +1,13 @@
 import { Element } from "react-scroll"
+import { motion } from 'framer-motion';
 
 export const HomeFototeca = () => {
   return (
     <Element name="fototeca">
-        <section className=" bg-cover w-full h-auto flex flex-row gap-5 p-10 justify-between items-start">
+        <section className=" bg-cover w-full h-auto flex flex-row gap-5 p-10 justify-between items-start overflow-hidden">
             {/* opciones */}
-            <div className="w-2/3 flex flex-col gap-4">
+            <motion.div initial={{x:-100 , opacity:0}} transition={{duration:1.5 }} whileInView={{ x:0 , opacity:1}}
+            className="w-2/3 flex flex-col gap-4">
                 <div className="w-full flex h-auto flex-row  bg-[#1D2432] p-4 items-center justify-between">
                     <p className="text-3xl font-bold text-white flex">Personal</p>
                     <button>
@@ -31,11 +33,12 @@ export const HomeFototeca = () => {
                     </button>
                 </div>
                
-            </div>
+            </motion.div>
             {/* fotos */}
-            <div className="w-full h-96 border-2 border-green-500 rounded-xl flex items-center justify-center">   
+            <motion.div initial={{x:100 , opacity:0}} transition={{duration:1 }} whileInView={{ x:0 , opacity:1}}
+            className="w-full h-96 border-2 border-green-500 rounded-xl flex items-center justify-center">   
                 <img src="./Imagenes/vfinstalaciones.png" alt="Imagen " className="w-full h-full object-contain" />
-            </div>
+            </motion.div>
         </section>
   </Element>
   )
