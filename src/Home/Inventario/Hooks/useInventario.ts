@@ -34,11 +34,11 @@ export interface Succe {
 
 export const useInventario = () => {
 
-    const allVehiculo = async(): Promise<Respuesta[]> => {
+    const allVehiculo = async(): Promise<Respuesta> => {
         try {
-            const respuesta: AxiosResponse<Respuesta[]> = await axios.get<Respuesta[]>('https://public.cartmots.com/api/allvehiculo', {
+            const respuesta= await axios.get<Respuesta>('https://public.cartmots.com/api/allvehiculo', {
                 headers: {
-                    Authorization: `Bearer 1258|JdxoyHrTPkqAFDKtzGAwfqrQeXIScydhvYXTWzcS`
+                    Authorization: `Bearer 1260|T6JS4KIywfafxdEbmQ3bHwQNP6PofjyUZsNQ1hsb`
                 }
             });
             return respuesta.data;
