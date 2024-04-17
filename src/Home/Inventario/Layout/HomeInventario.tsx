@@ -28,7 +28,7 @@ export const HomeInventario = () => {
           Inventario
         </h5>
         {/* inventario y filtros */}
-        <section className="w-full h-full flex flex-row gap-5 p-5">
+        <section className="w-full h-full flex flex-row gap-5 p-5 justify-center">
           {/* filtros */}
           <div className="bg-[#1D2432] w-60 h-auto border-2 border-green-500 flex flex-col gap-3 rounded-lg p-2">
                 <button className="p-2 text-lg font-bold text-white bg-[#6366F1] hover:bg-[#6366F1]/30 transition-all">
@@ -63,7 +63,7 @@ export const HomeInventario = () => {
 
           </div>
           {/* resultado */}
-          <div className="w-full h-full grid grid-cols-4 gap-5 ">
+          <div className="w-full h-full grid grid-cols-3 gap-5 ">
             {vehiculos?.succes.map((vehiculo,index) => (
               <TarjetaVehiculo key={index}>
                 <Imagenes
