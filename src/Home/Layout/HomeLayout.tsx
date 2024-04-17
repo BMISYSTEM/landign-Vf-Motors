@@ -13,7 +13,7 @@ export const HomeLayout = () => {
         {/* header */}
         <LayoutHeader/>
         {/* main */}
-        <main className="w-full h-full bg-gray-950 bg-[url(./public/Imagenes/cuadricula.png)] bg-contain">
+        <main className="w-full h-full bg-gray-950 bg-[url('./public/Imagenes/cuadricula.png')] bg-contain">
         {/* Quienes somos */}
           <HomeQuienesSomos/>
           {/* mission */}
