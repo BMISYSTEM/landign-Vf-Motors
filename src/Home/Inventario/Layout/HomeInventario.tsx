@@ -58,7 +58,7 @@ export const HomeInventario = () => {
                     70 a 100 millones
                 </button>
                 <button className="border-2 rounded-xl border-sky-500 p-2 text-lg text-slate-200 font-bold hover:bg-sky-500 transition-all">
-                    mas de 100 millones
+                    mas de 100 millones.
                 </button>
 
           </div>
