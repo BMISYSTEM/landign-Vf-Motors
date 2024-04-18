@@ -1,0 +1,27 @@
+.trajeta{
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #1D2432;
+}
+
+.trajeta::after{
+    content: '';
+    position: absolute;
+    height: 50%;
+    width: 200%;
+    background-image: conic-gradient(#03fe20 20deg, transparent 120deg);
+    animation: rotar 5s linear infinite;
+}
+
+@keyframes rotar{
+    from{
+        transform: rotate(0deg);
+    }
+    to{
+        transform: rotate(360deg);
+    }
+}
+
