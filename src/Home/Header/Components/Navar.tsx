@@ -13,8 +13,8 @@ export const Navar = () => {
         duration={700}
         className="text-sm  text-white"
       >
-        <button>
-            Quienes Somos
+        <button className="hover:border-b-2 hover:border-green-500">
+            Nosotros
         </button>
       </Link>
       <Link
@@ -23,7 +23,7 @@ export const Navar = () => {
         duration={700}
         className="text-sm  text-white"
       >
-        <button>
+         <button className="hover:border-b-2 hover:border-green-500">
             Mision
         </button>
       </Link>
@@ -33,7 +33,7 @@ export const Navar = () => {
         duration={700}
         className="text-sm  text-white"
       >
-        <button>
+         <button className="hover:border-b-2 hover:border-green-500">
             Vision
         </button>
       </Link>
@@ -43,7 +43,7 @@ export const Navar = () => {
         duration={700}
         className="text-sm  text-white"
       >
-        <button>
+         <button className="hover:border-b-2 hover:border-green-500">
             Fototeca
         </button>
       </Link>
@@ -53,7 +53,7 @@ export const Navar = () => {
         duration={700}
         className="text-sm  text-white"
       >
-        <button>
+         <button className="hover:border-b-2 hover:border-green-500">
             Servicios
         </button>
       </Link>
@@ -63,7 +63,7 @@ export const Navar = () => {
         duration={700}
         className="text-sm  text-white"
       >
-        <button>
+         <button className="hover:border-b-2 hover:border-green-500">
             Inventario
         </button>
       </Link>
@@ -73,12 +73,12 @@ export const Navar = () => {
         duration={700}
         className="text-sm  text-white"
       >
-        <button>
+         <button className="hover:border-b-2 hover:border-green-500">
             Testimonios
         </button>
       </Link>
       <Link to={"contactenos"} className="text-sm  text-white">
-        <button>
+      <button className="hover:border-b-2 hover:border-green-500">
             Contactenos
         </button>
       </Link>

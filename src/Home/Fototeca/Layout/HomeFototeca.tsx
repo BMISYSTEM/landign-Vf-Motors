@@ -36,8 +36,8 @@ export const HomeFototeca = () => {
             </motion.div>
             {/* fotos */}
             <motion.div initial={{x:100 , opacity:0}} transition={{duration:1 }} whileInView={{ x:0 , opacity:1}}
-            className="w-full h-96 border-2 border-green-500 rounded-xl flex items-center justify-center">   
-                <img src="./Imagenes/vfinstalaciones.png" alt="Imagen " className="w-full h-full object-contain" />
+            className="w-full h-96  rounded-xl flex items-center justify-center">   
+                <img src="./Imagenes/vfinstalaciones.png" alt="Imagen " className="w-full h-full object-contain rounded-sm" />
             </motion.div>
         </section>
   </Element>
