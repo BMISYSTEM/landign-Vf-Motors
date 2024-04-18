@@ -5,6 +5,7 @@ import { TarjetaVehiculo } from "../Components/TarjetasVehiculos/component/Tarje
 import { Imagenes } from "../Components/TarjetasVehiculos/component/Imagenes";
 import { DatosVehiculo } from "../Components/TarjetasVehiculos/component/DatosVehiculo";
 
+
 export const HomeInventario = () => {
   const { allVehiculo } = useInventario();
   const [vehiculos, setVehiculos] = useState<Respuesta>();
@@ -60,7 +61,6 @@ export const HomeInventario = () => {
                 <button className="border-2 rounded-xl border-sky-500 p-2 text-lg text-slate-200 font-bold hover:bg-sky-500 transition-all">
                     mas de 100 millones.
                 </button>
-
           </div>
           {/* resultado */}
           <div className="w-full h-full grid grid-cols-3 gap-5 ">

@@ -38,7 +38,7 @@ export const useInventario = () => {
         try {
             const respuesta= await axios.get<Respuesta>('https://public.cartmots.com/api/allvehiculo', {
                 headers: {
-                    Authorization: `Bearer 1260|T6JS4KIywfafxdEbmQ3bHwQNP6PofjyUZsNQ1hsb`
+                    Authorization: `Bearer 1284|RYYRkE6sSqTU434Oxj36EHop8bqOV7BwNk0FK5Hx`
                 }
             });
             return respuesta.data;
