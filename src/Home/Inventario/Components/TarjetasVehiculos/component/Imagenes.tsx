@@ -3,7 +3,6 @@ import derecha from '../assets/derecha.svg'
 import izquierda from '../assets/izquierda.svg'
 import { LazyLoadImage } from 'react-lazy-load-image-component'
 // import 'animate.css'
-import loading from '../../../Assets/loading.gif'
 interface imagen{
     foto1:string,
     foto2:string,
