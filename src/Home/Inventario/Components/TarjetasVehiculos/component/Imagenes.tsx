@@ -1,8 +1,9 @@
 import  { useState } from 'react'
 import derecha from '../assets/derecha.svg'
 import izquierda from '../assets/izquierda.svg'
+import { LazyLoadImage } from 'react-lazy-load-image-component'
 // import 'animate.css'
-
+import loading from '../../../Assets/loading.gif'
 interface imagen{
     foto1:string,
     foto2:string,
@@ -35,10 +36,11 @@ export const Imagenes = (imagenes:imagen) => {
                 <img src={izquierda} alt="" className='w-6 h-6' />
             </button>
         </div>
-        <img src={imagenes.foto1} alt='imagen' className={`${visible === 0 ? "" : " hidden"} w-[80%] h-full rounded-xl `} loading='lazy' />
-        <img src={imagenes.foto2} alt='imagen' className={`${visible === 1 ? "" : " hidden"} w-[80%] h-full rounded-xl `} loading='lazy' />
-        <img src={imagenes.foto3} alt='imagen' className={`${visible === 2 ? "" : " hidden"} w-[80%] h-full rounded-xl `} loading='lazy' />
-        <img src={imagenes.foto4} alt='imagen' className={`${visible === 3 ? "" : " hidden"} w-[80%] h-full rounded-xl `} loading='lazy' />
+        
+        <LazyLoadImage src={imagenes.foto1}  key={imagenes.foto1} alt='imagen' className={`${visible === 0 ? "" : " hidden"} w-[80%] h-full rounded-xl `}  />
+        <LazyLoadImage src={imagenes.foto2}  key={imagenes.foto2} alt='imagen' className={`${visible === 1 ? "" : " hidden"} w-[80%] h-full rounded-xl `}  />
+        <LazyLoadImage src={imagenes.foto3}  key={imagenes.foto3} alt='imagen' className={`${visible === 2 ? "" : " hidden"} w-[80%] h-full rounded-xl `}  />
+        <LazyLoadImage src={imagenes.foto4}  key={imagenes.foto4} alt='imagen' className={`${visible === 3 ? "" : " hidden"} w-[80%] h-full rounded-xl `}  />
         {/* <p className='text-xl font-bold text-red'>{visible}</p> */}
         <div className='w-1/2 h-full  flex items-center justify-end  '>
             <button className='hover:scale-110 transition' onClick={()=>moveimagen(-1)}>

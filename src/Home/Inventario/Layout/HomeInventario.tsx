@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 import { TarjetaVehiculo } from "../Components/TarjetasVehiculos/component/TarjetaVehiculo";
 import { Imagenes } from "../Components/TarjetasVehiculos/component/Imagenes";
 import { DatosVehiculo } from "../Components/TarjetasVehiculos/component/DatosVehiculo";
-
+import stylos from '../css/inventario.module.css'
 
 export const HomeInventario = () => {
   const { allVehiculo } = useInventario();
@@ -24,14 +24,14 @@ export const HomeInventario = () => {
 
   return (
     <Element name="inventario">
-      <section className="w-full h-auto flex flex-col gap-5 p-5 ">
+      <section className="w-full h-screen flex flex-col gap-5 p-5 overflow-hidden ">
         <h5 className="text-3xl font-bold text-white text-center">
           Inventario
         </h5>
         {/* inventario y filtros */}
-        <section className="w-full h-full flex flex-row gap-5 p-5 justify-center">
+        <section className={`${stylos.scroll} scroll w-full flex flex-row gap-5 p-5 justify-center overflow-auto`}>
           {/* filtros */}
-          <div className="bg-[#1D2432] w-60 h-auto border-2 border-green-500 flex flex-col gap-3 rounded-lg p-2">
+          <div className="bg-[#1D2432] w-60 h-screen border-2 border-green-500 flex flex-col gap-3 rounded-lg p-2  ">
                 <button className="p-2 text-lg font-bold text-white bg-[#6366F1] hover:bg-[#6366F1]/30 transition-all">
                     Borrar filtros
                 </button>
@@ -63,7 +63,7 @@ export const HomeInventario = () => {
                 </button>
           </div>
           {/* resultado */}
-          <div className="w-full h-full grid grid-cols-3 gap-5 ">
+          <div className="w-full h-auto grid grid-cols-3 gap-5 ">
             {vehiculos?.succes.map((vehiculo,index) => (
               <TarjetaVehiculo key={index}>
                 <Imagenes
