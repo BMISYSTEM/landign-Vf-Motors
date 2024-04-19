@@ -3,6 +3,9 @@ import { Respuesta, useInventario } from "../Hooks/useInventario";
 import { useEffect, useState } from "react";
 
 import stylos from '../css/inventario.module.css'
+import { TarjetaVehiculo } from "../Components/TarjetasVehiculos/component/TarjetaVehiculo";
+import { Imagenes } from "../Components/TarjetasVehiculos/component/Imagenes";
+import { DatosVehiculo } from "../Components/TarjetasVehiculos/component/DatosVehiculo";
 
 export const HomeInventario = () => {
   const { allVehiculo,loading } = useInventario();
@@ -66,7 +69,7 @@ export const HomeInventario = () => {
           </div>
           {/* resultado */}
           <div className="w-full h-auto grid grid-cols-3 gap-5 ">
-            {/* {vehiculos?.succes.map((vehiculo,index) => (
+            {vehiculos?.succes.map((vehiculo,index) => (
               <TarjetaVehiculo key={index}>
                 <Imagenes
                   foto1={"https://public.cartmots.com" + vehiculo.foto1}
@@ -84,7 +87,7 @@ export const HomeInventario = () => {
                   version={vehiculo.version}
                 />
               </TarjetaVehiculo>
-            ))} */}
+            ))}
           </div>
         </section>
       </section>
