@@ -1,3 +1,4 @@
+import { useState } from "react"
 import { HomeContacto } from "../Contacto/layout/HomeContacto"
 import { HomeFooter } from "../Footer/views/HomeFooter"
 import { HomeFototeca } from "../Fototeca/Layout/HomeFototeca"
@@ -11,6 +12,7 @@ import { HomeUbicacion } from "../UbicacionMapa/layouts/HomeUbicacion"
 import { HomeVision } from "../Vision/Layout/HomeVision"
 
 export const HomeLayout = () => {
+  const [invisible,setInvisible] = useState(true)
   return (
     <>
         {/* header */}
@@ -35,6 +37,7 @@ export const HomeLayout = () => {
           <HomeUbicacion/>
           {/* footer */}
           <HomeFooter/>
+          {invisible ? null :  <HomeInventario/>}
         </main>
         {/* footer */}
     </>
