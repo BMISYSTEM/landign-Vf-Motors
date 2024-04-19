@@ -12,7 +12,7 @@ import { HomeUbicacion } from "../UbicacionMapa/layouts/HomeUbicacion"
 import { HomeVision } from "../Vision/Layout/HomeVision"
 
 export const HomeLayout = () => {
-  const [invisible,setInvisible] = useState(true)
+  const [invisible] = useState(true)
   return (
     <>
         {/* header */}
