@@ -52,7 +52,7 @@ export const HomeFooter = () => {
                 <p className="text-slate-300">cr56g7671</p>
             </div>
         </div>
-        <p className="text-slate-300 text-center">Todos los derechos recerbados@</p>
+        <p className="text-slate-300 text-center">Todos los derechos reservados@</p>
     </section>
   )
 }
