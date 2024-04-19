@@ -77,7 +77,10 @@ export const Navar = () => {
             Testimonios
         </button>
       </Link>
-      <Link to={"contactenos"} className="text-sm  text-white">
+      <Link to={"contactenos"} 
+      smooth={true}
+      duration={700}
+      className="text-sm  text-white">
       <button className="hover:border-b-2 hover:border-green-500">
             Contactenos
         </button>

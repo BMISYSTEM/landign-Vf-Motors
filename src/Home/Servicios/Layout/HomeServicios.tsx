@@ -11,7 +11,7 @@ import { motion } from 'framer-motion';
 export const HomeServicios = () => {
   return (
     <Element name='servicios'>
-        <section className='w-full relative h-screen flex flex-col gap-10 items-center'>
+        <section className='bg-gray-950 shadow-2xl shadow-gray-950 w-full relative h-screen flex flex-col gap-10 items-center'>
             <div className='absolute flex flex-col gap-5 w-full h-full items-center'>
                 <h4 className='text-3xl font-bold text-white text-center'>Servicios</h4>
                 {/* servicios */}

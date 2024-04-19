@@ -7,9 +7,13 @@ import { DatosVehiculo } from "../Components/TarjetasVehiculos/component/DatosVe
 import stylos from '../css/inventario.module.css'
 
 export const HomeInventario = () => {
-  const { allVehiculo } = useInventario();
+  const { allVehiculo,loading } = useInventario();
   const [vehiculos, setVehiculos] = useState<Respuesta>();
-
+  if(loading){
+    return (
+    <p>Cargando inventario...</p>
+    )
+  }
   useEffect(() => {
     const fetchVehiculos = async () => {
       try {
@@ -64,7 +68,7 @@ export const HomeInventario = () => {
           </div>
           {/* resultado */}
           <div className="w-full h-auto grid grid-cols-3 gap-5 ">
-            {vehiculos?.succes.map((vehiculo,index) => (
+            {/* {vehiculos?.succes.map((vehiculo,index) => (
               <TarjetaVehiculo key={index}>
                 <Imagenes
                   foto1={"https://public.cartmots.com" + vehiculo.foto1}
@@ -82,7 +86,7 @@ export const HomeInventario = () => {
                   version={vehiculo.version}
                 />
               </TarjetaVehiculo>
-            ))}
+            ))} */}
           </div>
         </section>
       </section>

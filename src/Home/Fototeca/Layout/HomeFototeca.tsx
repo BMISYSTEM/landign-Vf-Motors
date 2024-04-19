@@ -4,7 +4,7 @@ import { motion } from 'framer-motion';
 export const HomeFototeca = () => {
   return (
     <Element name="fototeca">
-        <section className=" bg-cover w-full h-auto flex flex-row gap-5 p-10 justify-between items-start overflow-hidden">
+        <section className=" bg-gray-950 shadow-2xl shadow-black w-full h-auto flex flex-row gap-5 p-10 justify-between items-start overflow-hidden">
             {/* opciones */}
             <motion.div initial={{x:-100 , opacity:0}} transition={{duration:1.5 }} whileInView={{ x:0 , opacity:1}}
             className="w-2/3 flex flex-col gap-4">
