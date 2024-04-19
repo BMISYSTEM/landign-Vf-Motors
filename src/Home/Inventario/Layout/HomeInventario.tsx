@@ -1,9 +1,7 @@
 import { Element } from "react-scroll";
 import { Respuesta, useInventario } from "../Hooks/useInventario";
 import { useEffect, useState } from "react";
-import { TarjetaVehiculo } from "../Components/TarjetasVehiculos/component/TarjetaVehiculo";
-import { Imagenes } from "../Components/TarjetasVehiculos/component/Imagenes";
-import { DatosVehiculo } from "../Components/TarjetasVehiculos/component/DatosVehiculo";
+
 import stylos from '../css/inventario.module.css'
 
 export const HomeInventario = () => {
