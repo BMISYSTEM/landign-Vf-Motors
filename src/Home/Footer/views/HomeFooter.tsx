@@ -2,7 +2,7 @@ import { Link } from "react-scroll"
 
 export const HomeFooter = () => {
   return (
-    <section className="w-full h-auto bg-slate-950 flex flex-col mt-10 p-5 ">
+    <section className="w-full h-auto bg-slate-950 flex flex-col  p-5 ">
         {/* redes sociales */}
         <div className="w-full h-auto flex  justify-center ">
             <div className="w-1/2 flex flex-row gap-2   justify-center">

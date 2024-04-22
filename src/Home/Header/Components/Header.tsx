@@ -3,7 +3,10 @@ import { Element } from "react-scroll";
 import { motion } from "framer-motion";
 import styles from '../css/AnimationButton.module.css'
 import stylesp from '../css/AnimationMaquina.module.css'
+import { useContext } from "react";
+import { HomeContext } from "../../Context/HomeContext";
 export const Header = () => {
+  const {modalLogin} = useContext(HomeContext)
   return (
     <Element name="Header">
       <section className="w-full h-[90vh] relative flex items-center justify-center flex-col gap-2 overflow-hidden bg-gray-950 ">
@@ -11,7 +14,7 @@ export const Header = () => {
           initial={{ x: 100, opacity: 0 }}
           transition={{ duration: 1 }}
           whileInView={{ x: 0, opacity: 1 }}
-          className="flex flex-col absolute items-center justify-center gap-5  z-10"
+          className={`${modalLogin === true ? 'hidden' : null} flex flex-col absolute items-center justify-center gap-5  z-10`}
         >
           <h1 className={`${stylesp.h1} text-6xl text-white font-bold`}>Slogan de la Marca</h1>
           <h2 className={`${stylesp.h2} text-4xl text-white font-bold`}>
@@ -34,7 +37,7 @@ export const Header = () => {
           </div>
         </motion.div>
         <img
-          src={"./Imagenes/vfinstalaciones.png"}
+          src={"./Imagenes/bmw.webp"}
           alt=""
           className=" object-fill brightness-50    w-full h-full"
           style={{

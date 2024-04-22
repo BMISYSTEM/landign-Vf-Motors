@@ -1,8 +1,9 @@
 import { Element } from "react-scroll";
-import mision from "../Assets/mission.png";
 import { motion } from 'framer-motion';
 import { DivAnimateLinea } from "../../../ComponentsGenerales/DivAnimateLinea";
 
+// import mision from "../Assets/mission.png";
+import manejando from "../Assets/abrazando.jpeg";
 export const HomeVision = () => {
   return (
     <Element name="vision">
@@ -26,8 +27,8 @@ export const HomeVision = () => {
         </motion.div>
         {/* imagen */}
         <motion.div initial={{y:100 , opacity:0}} transition={{duration:1 }} whileInView={{ y:0 , opacity:1}}
-        className="w-1/2 flex items-end justify-center  mr-[10rem]">
-          <img src={mision} alt="Imagen de mision" className="w-40" />
+        className="w-full flex items-end justify-center  mr-[10rem]">
+          <img src={manejando} alt="Imagen de mision" className="w-96 h-96 ml-10 object-cover" />
         </motion.div>
       </section>
     </Element>

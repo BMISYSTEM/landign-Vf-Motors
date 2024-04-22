@@ -1,5 +1,6 @@
 import axios from "axios";
 import { useState } from "react";
+import useSWR from "swr";
 
 export interface Respuesta {
     succes: Succe[];
@@ -34,26 +35,17 @@ export interface Succe {
 
 
 export const useInventario = () => {
-    const [loading,setLoading] = useState(false)
-    const allVehiculo = async(): Promise<Respuesta> => {
-        // se declara el inicio de la carga
-        setLoading(true)
-        try {
-            const respuesta= await axios.get<Respuesta>('https://public.cartmots.com/api/allvehiculo?limite=1000&offset=1', {
-                headers: {
-                    Authorization: `Bearer 1284|RYYRkE6sSqTU434Oxj36EHop8bqOV7BwNk0FK5Hx`
-                }
-            });
-            return respuesta.data;
-        } catch (error) {
-            throw new Error(`Error fetching data: ${error}`);
+
+    const {data,error,isLoading,mutate} = useSWR('https://public.cartmots.com/api/allvehiculo?limite=1000&offset=1',()=>
+    axios('https://public.cartmots.com/api/allvehiculo?limite=1000&offset=1',{
+        headers:{
+            Authorization:`Bearer 1284|RYYRkE6sSqTU434Oxj36EHop8bqOV7BwNk0FK5Hx`
         }
-        // se declara el fin de la carga
-        setLoading(false)
-    }
+    }))
 
     return {
-        loading,
-        allVehiculo
+        data,error,
+        isLoading,
+        mutate,
     }
 }

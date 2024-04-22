@@ -1,8 +1,8 @@
 import { Element } from "react-scroll"
-import mision from '../Assets/mission.png'
 import { motion } from "framer-motion"
 import { DivAnimateLinea } from "../../../ComponentsGenerales/DivAnimateLinea"
 // imagen 
+import mision from '../Assets/carros.webp'
 // import fondo from '../Assets/cuadrícula verde.png'
 export const HomeMision = () => {
   return (
@@ -11,11 +11,13 @@ export const HomeMision = () => {
             {/* <img src={fondo} alt="fondo" className="absolute w-full  bg-opacity-20" style={{
             maskImage: 'linear-gradient(black 90%,transparent 95%)',
         }}/> */}
-            <div className="  flex flex-row items-center p-5 ">
+            <div className="  flex flex-row items-center p-5 gap-2 ">
                 {/* imagen */}
                 <motion.div initial={{x:-100 , opacity:0}} transition={{duration:1 }} whileInView={{ x:0 , opacity:1}} 
                 className="w-full flex items-end justify-center ">
-                    <img src={mision} alt="Imagen de mision" />
+                    <img src={mision} alt="Imagen de mision" className=" opacity-90 w-full h-auto" style={{
+                        maskImage: "linear-gradient(black 90%,transparent 100%)",
+                    }}/>
                 </motion.div>
                 {/* mision */}
                 <motion.div initial={{x:100 , opacity:0}} transition={{duration:1 }} whileInView={{ x:0 , opacity:1}}

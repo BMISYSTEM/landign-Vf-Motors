@@ -1,7 +1,11 @@
 import { Link } from "react-scroll";
+import { Link as LinkNav } from "react-router-dom";
 import logo from "../Assets/logo.png";
+import { useContext } from "react";
+import { HomeContext } from "../../Context/HomeContext";
 
 export const Navar = () => {
+  const {modalLogin,setModalLogin}  = useContext(HomeContext)
   return (
     <nav className="w-full h-20 bg-black flex flex-row gap-4 p-2 items-center justify-between">
       <div className="w-1/2">
@@ -57,16 +61,14 @@ export const Navar = () => {
             Servicios
         </button>
       </Link>
-      <Link
-        to={"inventario"}
-        smooth={true}
-        duration={700}
+      <LinkNav
+        to={'/inventario'}
         className="text-sm  text-white"
       >
          <button className="hover:border-b-2 hover:border-green-500">
             Inventario
         </button>
-      </Link>
+      </LinkNav>
       <Link
         to={"testimonios"}
         smooth={true}
@@ -86,6 +88,7 @@ export const Navar = () => {
         </button>
       </Link>
       <button
+      onClick={()=>setModalLogin(!modalLogin)}
         className="p-2 text-lg font-bold text-white bg-green-500 rounded-lg border-2 border-white
     hover:bg-green-700 hover:scale-105 transition-all"
       >
