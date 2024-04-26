@@ -29,7 +29,7 @@ export const Imagenes = (imagenes:imagen) => {
     }
   }
   return (
-    <div className='w-full h-44 bg-[#1D2432] mt-2 flex flex-row overflow-hidden rounded-lg relative justify-between'>
+    <div className='w-full md:h-44 h-auto bg-[#1D2432] mt-2 flex flex-row overflow-hidden rounded-lg relative justify-between'>
          <div className='w-1/2 h-full  flex items-center justify-start '>
             <button className='hover:scale-110 transition' onClick={()=>moveimagen(1)}>
                 <img src={izquierda} alt="" className='w-6 h-6' />

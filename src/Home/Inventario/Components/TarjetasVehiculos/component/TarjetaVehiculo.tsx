@@ -8,7 +8,7 @@ interface TarjetaVehiculoProps {
 export const TarjetaVehiculo:React.FC<TarjetaVehiculoProps> = ({children}) => {
   return (
     <Provider value={{ }}>
-        <div className='w-72 h-[25rem] flex flex-col border-2 justify-between rounded-xl p-1 border-green-500 gap-2 bg-[#1D2432]   shadow-2xl'>
+        <div className='md:w-72 w-40 md:h-[25rem] h-auto flex flex-col border-2 justify-between rounded-xl p-1 border-green-500 gap-2 bg-[#1D2432]   shadow-2xl'>
             {children}
         </div>
     </Provider>

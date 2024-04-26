@@ -13,7 +13,7 @@ interface props{
 
 export const DatosVehiculo = ({marca,linea,version,modelo,caja,placa,valor}:props) => {
   return (
-    <section className='w-full h-44  flex flex-col p-2 justify-between'>
+    <section className='w-full md:h-44  flex flex-col p-2 justify-between'>
         <p className='text-sm font-bold text-slate-200'>Valor   :  <span className='text-2xl '>$ {valor}</span>       </p>
         <p className='text-sm font-bold text-slate-200'>Marca   : {marca}  </p>
         <p className='text-sm font-bold text-slate-200'>Linea   : {linea}  </p>

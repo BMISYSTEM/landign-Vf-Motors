@@ -93,7 +93,7 @@ export const HomeInventario = () => {
             />
           </Link>
           {/* buscador */}
-          <div className="relative flex flex-row items-center p-2 w-1/3  ">
+          <div className="relative w-full flex flex-row items-center p-2 md:w-1/3  ">
             {/* imagen */}
             <div className="absolute ">
               <svg
@@ -123,10 +123,10 @@ export const HomeInventario = () => {
         </div>
         {/* inventario y filtros */}
         <section
-          className={`${stylos.scroll} scroll w-full flex flex-row gap-5 p-5 justify-center overflow-auto`}
+          className={`${stylos.scroll} scroll w-full flex flex-row  gap-5 p-5 justify-center overflow-auto`}
         >
           {/* filtros */}
-          <div className="bg-[#1D2432] w-60 h-screen border-2 border-green-500 flex flex-col gap-3 rounded-lg p-2  ">
+          <div className="bg-[#1D2432] md:w-60 w-24 md:h-screen h-[50rem] border-2 border-green-500 flex flex-col gap-3 rounded-lg p-2  ">
             <button
               onClick={() => {
                 setBusqueda("");
@@ -136,37 +136,37 @@ export const HomeInventario = () => {
                   final: 0,
                 });
               }}
-              className="p-2 text-lg font-bold text-white bg-[#6366F1] hover:bg-[#6366F1]/30 transition-all"
+              className="p-2 md:text-lg text-sm font-bold text-white bg-[#6366F1] hover:bg-[#6366F1]/30 transition-all"
             >
               Borrar filtros
             </button>
             <h1 className={`text-2xl font-bold text-white`}>Marcas</h1>
             <button
               onClick={() => setBusquedaMarca("kia")}
-              className={` ${busquedaMarcas === 'kia' ? 'bg-green-500 ': null} border-2 rounded-xl border-green-500 p-2 text-lg text-slate-200 font-bold hover:bg-green-500 transition-all`}
+              className={` ${busquedaMarcas === 'kia' ? 'bg-green-500 ': null} border-2 rounded-xl border-green-500 p-2 md:text-lg text-sm text-slate-200 font-bold hover:bg-green-500 transition-all`}
             >
               Kia
             </button>
             <button
               onClick={() => setBusquedaMarca("chevrolet")}
-              className={` ${busquedaMarcas === 'chevrolet' ? 'bg-green-500 ': null} border-2 rounded-xl border-green-500 p-2 text-lg text-slate-200 font-bold hover:bg-green-500 transition-all`}
+              className={` ${busquedaMarcas === 'chevrolet' ? 'bg-green-500 ': null} border-2 rounded-xl border-green-500 p-2 md:text-lg text-sm text-slate-200 font-bold hover:bg-green-500 transition-all`}
             >
               Chevrolet
             </button>
             <button
               onClick={() => setBusquedaMarca("mazda")}
-              className={` ${busquedaMarcas === 'mazda' ? 'bg-green-500 ': null} border-2 rounded-xl border-green-500 p-2 text-lg text-slate-200 font-bold hover:bg-green-500 transition-all`}
+              className={` ${busquedaMarcas === 'mazda' ? 'bg-green-500 ': null} border-2 rounded-xl border-green-500 p-2 md:text-lg text-sm text-slate-200 font-bold hover:bg-green-500 transition-all`}
 
             >
               Mazda
             </button>
             <button
               onClick={() => setBusquedaMarca("hiunday")}
-              className={` ${busquedaMarcas === 'hiunday' ? 'bg-green-500 ': null} border-2 rounded-xl border-green-500 p-2 text-lg text-slate-200 font-bold hover:bg-green-500 transition-all`}
+              className={` ${busquedaMarcas === 'hiunday' ? 'bg-green-500 ': null} border-2 rounded-xl border-green-500 p-2 md:text-lg text-sm text-slate-200 font-bold hover:bg-green-500 transition-all`}
             >
               Hiunday
             </button>
-            <h1 className="text-2xl font-bold text-white">Precios</h1>
+            <h1 className="md:text-2xl text-lg font-bold text-white">Precios</h1>
             <button
               onClick={() =>
                 setBusquedaRango({
@@ -174,7 +174,7 @@ export const HomeInventario = () => {
                   final: 50000000,
                 })
               }
-              className="border-2 rounded-xl border-sky-500 p-2 text-lg text-slate-200 font-bold hover:bg-sky-500 transition-all"
+              className="border-2 rounded-xl border-sky-500 p-2 md:text-lg text-sm text-slate-200 font-bold hover:bg-sky-500 transition-all"
             >
               30 a 50 millones
             </button>
@@ -185,7 +185,7 @@ export const HomeInventario = () => {
                   final: 70000000,
                 })
               }
-              className="border-2 rounded-xl border-sky-500 p-2 text-lg text-slate-200 font-bold hover:bg-sky-500 transition-all"
+              className="border-2 rounded-xl border-sky-500 p-2 md:text-lg text-sm text-slate-200 font-bold hover:bg-sky-500 transition-all"
             >
               50 a 70 millones
             </button>
@@ -196,7 +196,7 @@ export const HomeInventario = () => {
                   final: 100000000,
                 })
               }
-              className="border-2 rounded-xl border-sky-500 p-2 text-lg text-slate-200 font-bold hover:bg-sky-500 transition-all"
+              className="border-2 rounded-xl border-sky-500 p-2 md:text-lg text-sm text-slate-200 font-bold hover:bg-sky-500 transition-all"
             >
               70 a 100 millones
             </button>
@@ -207,13 +207,13 @@ export const HomeInventario = () => {
                   final: 100000000000,
                 })
               }
-              className="border-2 rounded-xl border-sky-500 p-2 text-lg text-slate-200 font-bold hover:bg-sky-500 transition-all"
+              className="border-2 rounded-xl border-sky-500 p-2 md:text-lg text-sm text-slate-200 font-bold hover:bg-sky-500 transition-all"
             >
               mas de 100 millones.
             </button>
           </div>
           {/* resultado */}
-          <div className="w-full h-auto grid grid-cols-3 gap-5 ">
+          <div className="w-full h-auto grid md:grid-cols-3 grid-cols-2 gap-5 ">
             {vehiculos?.succes.map((vehiculo, index) => (
               <TarjetaVehiculo key={index}>
                 <Imagenes
