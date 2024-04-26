@@ -69,6 +69,14 @@ export const Navar = () => {
             Inventario
         </button>
       </LinkNav>
+      <LinkNav
+        to={'/noticias'}
+        className="text-sm  text-white"
+      >
+         <button className="hover:border-b-2 hover:border-green-500">
+            Noticias
+        </button>
+      </LinkNav>
       <Link
         to={"testimonios"}
         smooth={true}

@@ -17,7 +17,11 @@ export const HomeInventario = () => {
     final: 0,
   });
   if (isLoading) {
-    return <p>Cargando inventario...</p>;
+    return (
+      <section className="w-full h-screen bg-slate-950 text-white">
+        <p className="text-slate-300 text-2xl font-bold">Cargando inventario...</p>
+      </section>
+  );
   }
   let vehiculos: Respuesta = data?.data[0];
   // filtro busqueda
