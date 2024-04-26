@@ -11,12 +11,12 @@ import { motion } from 'framer-motion';
 export const HomeServicios = () => {
   return (
     <Element name='servicios'>
-        <section className='bg-gray-950 shadow-2xl shadow-gray-950 w-full relative h-screen flex flex-col gap-10 items-center'>
+        <section className='bg-slate-950 shadow-2xl shadow-gray-950 w-full relative md:h-screen h-96 flex flex-col gap-10 items-center'>
             <div className='absolute flex flex-col gap-5 w-full h-full items-center'>
                 <h4 className='text-3xl font-bold text-white text-center'>Servicios</h4>
                 {/* servicios */}
                 <motion.div initial={{opacity:0}} transition={{duration:3 }} whileInView={{opacity:1}}
-                className='w-2/3 h-full flex flex-row gap-5 justify-center flex-wrap '>
+                className='md:w-2/3 w-full h-full flex flex-row gap-5 justify-center flex-wrap '>
                     {/* tarjeta */}
                     <TarjetasServicios label='Prestamo' imagen={prestamo}/>
                     <TarjetasServicios label='Inventario' imagen={inventario}/>

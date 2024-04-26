@@ -19,7 +19,7 @@ export const HomeLayout = () => {
         <LayoutHeader/>
         {/* main */}
         {/* bg-[url('/Imagenes/cuadriculablancagrande.png')] */}
-        <main className="w-full h-full bg-slate-950  backdrop-blur-3xl" >
+        <main className="w-full h-full bg-slate-950  backdrop-blur-3xl overflow-hidden" >
         {/* Quienes somos */}
           <HomeQuienesSomos/>
           {/* mission */}

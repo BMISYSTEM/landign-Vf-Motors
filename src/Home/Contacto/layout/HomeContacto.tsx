@@ -4,16 +4,16 @@ export const HomeContacto = () => {
   return (
     <Element name="contactenos">
         <section className="w-full h-screen flex flex-col gap-3  justify-center items-center p-2">
-            <form action="" className="w-1/3 h-full flex flex-col p-2 gap-2 justify-center">
+            <form action="" className="md:w-1/3 w-full h-full flex flex-col p-2 gap-2 justify-center">
                 <h1 className="text-2xl font-bold text-white text-center mb-10 ">Contactenos</h1>
-                <div className="w-full flex flex-row justify-between">
+                <div className="w-full flex flex-row justify-between gap-2">
                     <div className="flex flex-col gap-2">
                         <label htmlFor="" className="text-slate-200">Nombre</label>
-                        <input type="text" placeholder="Nombre" className="p-2 w-full rounded-lg border-2 border-slate-300 bg-[#1D2432] text-slate-200"/>
+                        <input type="text" placeholder="Nombre" className="p-2 w-full  rounded-lg border-2 border-slate-300 bg-[#1D2432] text-slate-200"/>
                     </div>
                     <div className="flex flex-col gap-2">
                         <label htmlFor="" className="text-slate-200">Apellido</label>
-                        <input type="text" placeholder="Apellido" className="p-2 w-full rounded-lg border-2 border-slate-300 bg-[#1D2432] text-slate-200"/>
+                        <input type="text" placeholder="Apellido" className="p-2 w-full  rounded-lg border-2 border-slate-300 bg-[#1D2432] text-slate-200"/>
                     </div>
                 </div>
                 <label htmlFor="" className="text-slate-200 text-left">Email</label>

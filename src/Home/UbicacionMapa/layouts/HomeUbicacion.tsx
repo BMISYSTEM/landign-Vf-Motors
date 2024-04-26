@@ -4,7 +4,7 @@ import { Element } from "react-scroll";
 
 export const HomeUbicacion = () => {
   return (
-    <Element name="ubicacion" className="w-full flex flex-col items-center justify-center gap-4">
+    <Element name="ubicacion" className="w-full flex flex-col items-center justify-center gap-4 mt-10">
       <h4 className=" text-3xl font-bold text-white text-center">Ubicacion</h4>
       <section className="w-full flex flex-row  overflow-hidden ">
         {/* informacion util */}

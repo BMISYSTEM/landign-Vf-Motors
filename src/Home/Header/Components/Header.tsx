@@ -16,8 +16,8 @@ export const Header = () => {
           whileInView={{ x: 0, opacity: 1 }}
           className={`${modalLogin === true ? 'hidden' : null} flex flex-col absolute items-center justify-center gap-5  z-10`}
         >
-          <h1 className={`${stylesp.h1} text-6xl text-white font-bold`}>Slogan de la Marca</h1>
-          <h2 className={`${stylesp.h2} text-4xl text-white font-bold`}>
+          <h1 className={`${stylesp.h1} md:text-6xl text-xl text-white font-bold`}>Slogan de la Marca</h1>
+          <h2 className={`${stylesp.h2} md:text-4xl text-lg text-white font-bold`}>
             Informacion o mensaje a mostrar
           </h2>
           <div id="tenth" className={`${styles.button} `}>
@@ -39,7 +39,7 @@ export const Header = () => {
         <img
           src={"./Imagenes/bmw.webp"}
           alt=""
-          className=" object-fill brightness-50    w-full h-full"
+          className=" md:object-fill object-cover  brightness-50    w-full h-full"
           style={{
             // WebkitMaskImage: 'linear-gradient(to botton, transparent, black)', // Degradado lineal de transparente a negro
             maskImage: "linear-gradient(black 90%,transparent 100%)",
