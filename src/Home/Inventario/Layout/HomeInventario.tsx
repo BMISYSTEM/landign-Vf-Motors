@@ -16,6 +16,7 @@ export const HomeInventario = () => {
     inicial: 0,
     final: 0,
   });
+  const [expanFiltros,setexpanFiltros] = useState(false);
   if (isLoading) {
     return (
       <section className="w-full h-screen bg-slate-950 text-white">
@@ -123,10 +124,17 @@ export const HomeInventario = () => {
         </div>
         {/* inventario y filtros */}
         <section
-          className={`${stylos.scroll} scroll w-full flex flex-row  gap-5 p-5 justify-center overflow-auto`}
+          className={`${stylos.scroll} scroll w-full flex md:flex-row flex-col gap-5 p-5 md:justify-center overflow-auto`}
         >
           {/* filtros */}
-          <div className="bg-[#1D2432] md:w-60 w-24 md:h-screen h-[50rem] border-2 border-green-500 flex flex-col gap-3 rounded-lg p-2  ">
+          <div className="md:hidden flex w-full">
+            <button className="border p-2 rounded-full bg-green-500" onClick={()=>setexpanFiltros(!expanFiltros)}>
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="w-6 h-6 text-white">
+                <path strokeLinecap="round" strokeLinejoin="round" d="M12 3c2.755 0 5.455.232 8.083.678.533.09.917.556.917 1.096v1.044a2.25 2.25 0 0 1-.659 1.591l-5.432 5.432a2.25 2.25 0 0 0-.659 1.591v2.927a2.25 2.25 0 0 1-1.244 2.013L9.75 21v-6.568a2.25 2.25 0 0 0-.659-1.591L3.659 7.409A2.25 2.25 0 0 1 3 5.818V4.774c0-.54.384-1.006.917-1.096A48.32 48.32 0 0 1 12 3Z" />
+              </svg>
+            </button>
+          </div>
+          <div className={`${expanFiltros ? 'flex' : 'hidden md:flex'} bg-[#1D2432] md:w-60 w-full md:h-screen h-[50rem] border-2 border-green-500  flex-col gap-3 rounded-lg p-2  `}>
             <button
               onClick={() => {
                 setBusqueda("");
