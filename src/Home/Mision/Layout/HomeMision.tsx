@@ -1,10 +1,38 @@
 import { Element } from "react-scroll"
 import { motion } from "framer-motion"
+import useSWR from "swr"
+import axios from "axios"
 import { DivAnimateLinea } from "../../../ComponentsGenerales/DivAnimateLinea"
 // imagen 
-import mision from '../Assets/carros.webp'
+import logo from '../Assets/logo.png'
 // import fondo from '../Assets/cuadrícula verde.png'
+
+export interface Data {
+    succes: Succes;
+  }
+  
+  export interface Succes {
+    id:          number;
+    imagen:      string;
+    created_at:  Date;
+    updated_at:  Date;
+  }
 export const HomeMision = () => {
+    const url = import.meta.env.VITE_API_URL;
+    const urlImage = import.meta.env.VITE_API_URL_IMAGE;
+     // cargar la informacion del header
+  const {data,isLoading} = useSWR(`${url}/mision`,()=>
+    axios(`${url}/mision`))
+  
+    if(isLoading)
+      {
+        return (
+          <div className="w-full  bg-slate-950 text-center justify-center items-center">
+            <img src={logo} alt="" className="object-cover animate-pulse w-full h-full" />
+          </div>
+        )
+      }
+    const informacion:Data = data?.data;
   return (
     <Element name="mision">
         <section className={`relative w-full h-auto flex md:flex-row flex-col  gap-5  justify-between items-center overflow-hidden `}>
@@ -15,7 +43,7 @@ export const HomeMision = () => {
                 {/* imagen */}
                 <motion.div initial={{x:-100 , opacity:0}} transition={{duration:1 }} whileInView={{ x:0 , opacity:1}} 
                 className="w-full flex items-end justify-center ">
-                    <img src={mision} alt="Imagen de mision" className=" opacity-90 w-full h-auto" style={{
+                    <img src={`${urlImage}${informacion?.succes?.imagen}`} alt="Imagen de mision" className=" opacity-90 w-full h-auto" style={{
                         maskImage: "linear-gradient(black 90%,transparent 100%)",
                     }}/>
                 </motion.div>
