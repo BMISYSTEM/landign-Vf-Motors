@@ -10,6 +10,7 @@ import { HomeUbicacion } from "../UbicacionMapa/layouts/HomeUbicacion"
 import { HomeVision } from "../Vision/Layout/HomeVision"
 import { HomeProviderContext } from "../Context/HomeContext"
 import { HomeModales } from "../Modales/HomeModales"
+import { ToastContainer } from "react-toastify"
 
 export const HomeLayout = () => {
   return (
@@ -41,6 +42,7 @@ export const HomeLayout = () => {
         {/* footer */}
           <HomeFooter/>
           <HomeModales/>
+        <ToastContainer/>
     </HomeProviderContext>
   )
 }

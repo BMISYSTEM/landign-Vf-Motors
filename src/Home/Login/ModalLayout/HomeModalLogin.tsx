@@ -1,14 +1,41 @@
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { HomeContext } from "../../Context/HomeContext";
 import { useNavigate } from "react-router-dom";
-
+import { useAuth } from "../hooks/useAuth";
+import { Login } from "../hooks/DTO/dtoLogin";
+import { toast, ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 export const HomeModalLogin = () => {
+
     const {modalLogin,setModalLogin} = useContext(HomeContext)
+    const {login} = useAuth();
     const nav = useNavigate()
-    const handleclickLogin:React.FormEventHandler<HTMLFormElement> = (e) =>{
+    // variables de formulario
+    const [email,setEmail] = useState('');
+    const [password,setpassword]= useState('');
+    // varibles de respuesta http
+    const [respuesta,setRespuesta]=useState<Login| null>();
+    const [error,setError] = useState<any>()
+    const [loading,setloading] = useState<boolean>(false)
+    const handleclickLogin:React.FormEventHandler<HTMLFormElement> = async(e) =>{
         e.preventDefault();
-        nav('/panel')
+        const data = {
+          email:email,
+          password:password
+        }
+        setloading(true)
+        await login(data,setRespuesta,setError)
+        setloading(false)
+        // nav('/panel')
     }
+    if(respuesta?.succes)
+      {
+        toast.success('Sesion iniciada correctamente')
+        localStorage.setItem('token',respuesta?.succes)
+        setRespuesta(null)
+         nav('/panel')
+      }
+
   return (
     <section className="bg-slate-950 w-80 p-2 z-[99999999999999999999999999999999] h-auto flex flex-col gap-2 rounded-sm shadow-xl shadow-green-500  border-2 border-green-600">
       <div className="w-full h-auto  flex flex-row justify-end items-center">
@@ -30,6 +57,7 @@ export const HomeModalLogin = () => {
       <h1 className="text-2xl text-center font-bol text-slate-300 mb-5">
         Login
       </h1>
+      
       <form
         action=""
         onSubmit={handleclickLogin}
@@ -53,10 +81,13 @@ export const HomeModalLogin = () => {
           </div>
           <input
             type="email"
+            onChange={(e)=>setEmail(e.target.value)}
+            value={email}
             className="p-2 w-full rounded-sm pl-7 text-slate-700"
             placeholder="Digita tu Email/Correo"
           />
         </div>
+        {error?.errors?.email ? <p className="text-sm text-red-500 text-center">{error.errors.email[0]}</p>: null}
         <div className="w-full flex flex-row relative items-center rounded-lg">
           <div className="absolute  h-full flex items-center">
             <svg
@@ -74,17 +105,25 @@ export const HomeModalLogin = () => {
           </div>
           <input
             type="password"
+            onChange={(e)=>setpassword(e.target.value)}
+            value={password}
             className="p-2 w-full rounded-sm pl-7 text-slate-700"
             placeholder="Password/Contraseña"
           />
         </div>
+        {/* mensajedeque no se envio el password */}
+        {error?.errors?.password ? <p className="text-sm text-red-500 text-center">{error.errors.password[0]}</p>: null}
+        {/* mensaje de que la contrase esta mal  */}
+        {error?.error ? <p className="text-sm text-red-500 text-center">{error?.error}</p>:null}
         <button
           type="submit"
           className="bg-green-500 p-2 text-white font-bold rounded-sm"
         >
           Ingresar
         </button>
+        {loading ? <p className="text-sm text-green-500 text-center animate-pulse">Procesando...</p> :null}
       </form>
+      <ToastContainer/>
     </section>
   );
 };

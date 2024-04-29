@@ -1,7 +1,17 @@
 import { Outlet, Link } from 'react-router-dom';
 import { Aside } from './Components/Aside';
+import { useAuth } from './hooks/useAuth';
 
 export const PanelLayout= () => {
+  const {isLoading} = useAuth()
+  if(isLoading)
+    {
+      return(
+        <div className='w-full h-screen bg-slate-950 overflow-hidden flex items-center justify-center'>
+          <p className=' text-3xl text-green-300 text-center animate-ping'>Comprobando Credenciales...</p>
+        </div>
+      )
+    }
   return (
     <section className="w-full h-screen overflow-hidden bg-slate-950 flex flex-col">
         {/* cabecera */}
@@ -18,7 +28,7 @@ export const PanelLayout= () => {
         {/* contenido */}
         <main className="w-full h-full  flex flex-row">
             <Aside/>
-            <section>
+            <section className='w-full h-[98%] overflow-hidden'>
                 <Outlet/>
             </section>
         </main>
