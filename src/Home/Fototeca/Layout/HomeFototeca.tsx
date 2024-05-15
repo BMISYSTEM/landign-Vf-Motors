@@ -21,7 +21,7 @@ export const HomeFototeca = () => {
   const url = import.meta.env.VITE_API_URL;
   const urlimagen = import.meta.env.VITE_API_URL_IMAGE;
   const [imagenVisible, setImagenVisible] = useState<number>(1);
-  const [opcion, setOpcion] = useState<expands>({ option: 0 });
+  const [opcion, setOpcion] = useState<expands>({ option: 1 });
 
   //   consultar todas
   const { data, isLoading } = useSWR(`${url}/fototeca`, () =>
@@ -33,13 +33,14 @@ export const HomeFototeca = () => {
   let lista: Data = data?.data;
   lista = lista = {
     ...lista,
-    succes: lista.succes.filter(
+    succes: lista?.succes?.filter(
       (imagenes) => imagenes.seccion === opcion.option
     ),
   };
   return (
     <Element name="fototeca">
-      <section className=" bg-gray-950 shadow-2xl shadow-black w-full h-auto flex flex-row gap-5 p-10 justify-between md:items-start items-center overflow-hidden">
+      <p className="text-2xl font-bold text-slate-300 text-center">Conoce nuestra empresa</p>
+      <section className=" bg-gray-950 shadow-2xl shadow-black w-full h-auto flex md:flex-row flex-col gap-5 p-10 justify-between md:items-start items-center overflow-hidden">
         {/* opciones */}
         <motion.div
           initial={{ x: -100, opacity: 0 }}
@@ -49,19 +50,19 @@ export const HomeFototeca = () => {
         >
           <div 
           className={`${opcion.option === 1 ? 'bg-green-500 ' : null} w-full flex h-auto flex-col  bg-[#1D2432] p-4 items-center justify-between`}>
-            <div className="w-full flex flex-row gap-2 justify-between">
-              <p className="md:text-3xl text-lg font-bold text-white flex">
-                Personal
-              </p>
-              <button
-                onClick={() => {
+            <div  onClick={() => {
                   if (opcion.option === 1) {
                     setOpcion({ option: 1 });
                   } else {
                     setOpcion({ option: 1 });
                   }
                   setImagenVisible(1);
-                }}
+                }} className="w-full flex flex-row gap-2 justify-between cursor-pointer">
+              <p className="md:text-3xl text-lg font-bold text-white flex">
+                Personal
+              </p>
+              <button
+               
               >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -79,19 +80,19 @@ export const HomeFototeca = () => {
             </div>
           </div>
           <div className={`${opcion.option === 2 ? 'bg-green-500 ' : null} w-full flex h-auto flex-col  bg-[#1D2432] p-4 items-center justify-between`}>
-            <div className="w-full flex flex-row gap-2 justify-between">
-              <p className="md:text-3xl text-lg font-bold text-white flex">
-                Instalaciones
-              </p>
-              <button
-                onClick={() => {
+            <div onClick={() => {
                   if (opcion.option === 2) {
                     setOpcion({ option: 1 });
                   } else {
                     setOpcion({ option: 2 });
                   }
                   setImagenVisible(1);
-                }}
+                }} className="w-full flex flex-row gap-2 justify-between cursor-pointer">
+              <p className="md:text-3xl text-lg font-bold text-white flex">
+                Instalaciones
+              </p>
+              <button
+                
               >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -109,19 +110,19 @@ export const HomeFototeca = () => {
             </div>
           </div>
           <div  className={`${opcion.option === 3 ? 'bg-green-500 ' : null} w-full flex h-auto flex-col  bg-[#1D2432] p-4 items-center justify-between`}>
-            <div className="w-full flex flex-row gap-2 justify-between">
-              <p className="md:text-3xl text-lg font-bold text-white flex">
-                Entregas
-              </p>
-              <button
-                onClick={() => {
+            <div onClick={() => {
                   if (opcion.option === 3) {
                     setOpcion({ option: 1 });
                   } else {
                     setOpcion({ option: 3 });
                   }
                   setImagenVisible(1);
-                }}
+                }} className="w-full flex flex-row gap-2 justify-between cursor-pointer">
+              <p className="md:text-3xl text-lg font-bold text-white flex">
+                Entregas
+              </p>
+              <button
+                
               >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -157,7 +158,7 @@ export const HomeFototeca = () => {
                 : null}
             </p>
             {/* fotos solo se vera la que este en el estado */}
-            {lista.succes.map((image, index) =>
+            {lista?.succes?.map((image, index) =>
               image.seccion === opcion.option ? (
                 <img
                   src={`${urlimagen}${image.imagen}`}
@@ -165,28 +166,14 @@ export const HomeFototeca = () => {
                   className={`${
                     imagenVisible === index + 1 ? "" : "hidden"
                   } w-full h-full object-contain rounded-sm`}
+                  loading="lazy"
                 />
               ) : null
             )}
-            {/* {opcion.option === 2 ? 
-                    lista.succes.map((image,index)=>(
-                        
-                        image.seccion  === 2 ?
-                        <img src={`${urlimagen}${image.imagen}`} alt="Imagen " className={`${imagenVisible === index +1  ? '' : 'hidden'} w-full h-full object-contain rounded-sm`} />
-                        : null
-                    )):null
-                    }
-                    {opcion.option === 3 ? 
-                    lista.succes.map((image,index)=>(
-                        image.seccion  === 3 ?
-                        <img src={`${urlimagen}${image.imagen}`} alt="Imagen " className={`${imagenVisible === index +1  ? '' : 'hidden'} w-full h-full object-contain rounded-sm`} />
-                        : null
-                    ))
-                    :null} */}
           </div>
           <div className="w-full flex flex-row gap-2 items-center justify-center mt-3">
             {/* numero de fotos posibles */}
-            {lista.succes.map((image, index) =>
+            {lista?.succes?.map((image, index) =>
               image.seccion === opcion.option ? (
                 <button
                   onClick={() => setImagenVisible(index + 1)}

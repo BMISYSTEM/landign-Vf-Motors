@@ -53,7 +53,7 @@ const {data,isLoading} = useSWR(`${url}/vision`,()=>
         {/* imagen */}
         <motion.div initial={{y:100 , opacity:0}} transition={{duration:1 }} whileInView={{ y:0 , opacity:1}}
         className="md:w-[60rem] w-full  flex md:items-end items-center  justify-center  md:mr-[10rem]">
-          <img src={`${urlImage}${informacion?.succes?.imagen}`} alt="Imagen de mision" className="w-96 h-96 md:ml-10 md:object-cover object-fill" />
+          <img loading="lazy" src={`${urlImage}${informacion?.succes?.imagen}`} alt="Imagen de mision" className="w-full h-96 md:ml-10 md:object-cover object-contain " />
         </motion.div>
       </section>
     </Element>

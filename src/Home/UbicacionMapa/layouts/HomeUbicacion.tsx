@@ -6,10 +6,10 @@ export const HomeUbicacion = () => {
   return (
     <Element name="ubicacion" className="w-full flex flex-col items-center justify-center gap-4 mt-10">
       <h4 className=" text-3xl font-bold text-white text-center">Ubicacion</h4>
-      <section className="w-full flex flex-row  overflow-hidden ">
+      <section className="w-full flex md:flex-row flex-col  overflow-hidden ">
         {/* informacion util */}
-        <div className="w-1/3 flex flex-col gap-2 bg-gray-950 p-2">
-          <p className="text-2xl font-bold text-white">VF MOTORS</p>
+        <div className="md:w-1/3 w-full flex flex-col gap-2 bg-gray-950 p-2">
+          <p className="text-2xl font-bold text-white text-center">VF MOTORS</p>
           <div className="w-full h-auto p-2 flex flex-row  gap-2 items-center">
             {/* logo */}
             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" className="w-6 h-6 text-slate-300">

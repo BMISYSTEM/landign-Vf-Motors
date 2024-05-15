@@ -1,0 +1,317 @@
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8mb4 */;
+/*!40014 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0 */;
+/*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
+/*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
+/*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
+
+CREATE TABLE `banner_images` (
+  `id` bigint unsigned NOT NULL AUTO_INCREMENT,
+  `imagen` varchar(255) COLLATE  NOT NULL DEFAULT '',
+  `titulo` varchar(255) COLLATE  NOT NULL,
+  `descripcion` varchar(255) COLLATE  NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=;
+
+CREATE TABLE `cache` (
+  `key` varchar(255) COLLATE  NOT NULL,
+  `value` mediumtext COLLATE  NOT NULL,
+  `expiration` int NOT NULL,
+  PRIMARY KEY (`key`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=;
+
+CREATE TABLE `cache_locks` (
+  `key` varchar(255) COLLATE  NOT NULL,
+  `owner` varchar(255) COLLATE  NOT NULL,
+  `expiration` int NOT NULL,
+  PRIMARY KEY (`key`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=;
+
+CREATE TABLE `contactos` (
+  `id` bigint unsigned NOT NULL AUTO_INCREMENT,
+  `nombre` varchar(255) COLLATE  NOT NULL,
+  `apellido` varchar(255) COLLATE  NOT NULL,
+  `email` varchar(255) COLLATE  NOT NULL,
+  `telefono` varchar(255) COLLATE  NOT NULL,
+  `mensaje` text COLLATE  NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=;
+
+CREATE TABLE `failed_jobs` (
+  `id` bigint unsigned NOT NULL AUTO_INCREMENT,
+  `uuid` varchar(255) COLLATE  NOT NULL,
+  `connection` text COLLATE  NOT NULL,
+  `queue` text COLLATE  NOT NULL,
+  `payload` longtext COLLATE  NOT NULL,
+  `exception` longtext COLLATE  NOT NULL,
+  `failed_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `failed_jobs_uuid_unique` (`uuid`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=;
+
+CREATE TABLE `fototeca` (
+  `id` bigint unsigned NOT NULL AUTO_INCREMENT,
+  `imagen` varchar(255) COLLATE  NOT NULL,
+  `seccion` int NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=;
+
+CREATE TABLE `fototecas` (
+  `id` bigint unsigned NOT NULL AUTO_INCREMENT,
+  `imagen` varchar(255) COLLATE  NOT NULL,
+  `seccion` int NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=23 DEFAULT CHARSET=utf8mb4 COLLATE=;
+
+CREATE TABLE `job_batches` (
+  `id` varchar(255) COLLATE  NOT NULL,
+  `name` varchar(255) COLLATE  NOT NULL,
+  `total_jobs` int NOT NULL,
+  `pending_jobs` int NOT NULL,
+  `failed_jobs` int NOT NULL,
+  `failed_job_ids` longtext COLLATE  NOT NULL,
+  `options` mediumtext COLLATE ,
+  `cancelled_at` int DEFAULT NULL,
+  `created_at` int NOT NULL,
+  `finished_at` int DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=;
+
+CREATE TABLE `jobs` (
+  `id` bigint unsigned NOT NULL AUTO_INCREMENT,
+  `queue` varchar(255) COLLATE  NOT NULL,
+  `payload` longtext COLLATE  NOT NULL,
+  `attempts` tinyint unsigned NOT NULL,
+  `reserved_at` int unsigned DEFAULT NULL,
+  `available_at` int unsigned NOT NULL,
+  `created_at` int unsigned NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `jobs_queue_index` (`queue`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=;
+
+CREATE TABLE `migrations` (
+  `id` int unsigned NOT NULL AUTO_INCREMENT,
+  `migration` varchar(255) COLLATE  NOT NULL,
+  `batch` int NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=utf8mb4 COLLATE=;
+
+CREATE TABLE `misions` (
+  `id` bigint unsigned NOT NULL AUTO_INCREMENT,
+  `imagen` varchar(255) COLLATE  NOT NULL DEFAULT '',
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=;
+
+CREATE TABLE `password_reset_tokens` (
+  `email` varchar(255) COLLATE  NOT NULL,
+  `token` varchar(255) COLLATE  NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  PRIMARY KEY (`email`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=;
+
+CREATE TABLE `personal_access_tokens` (
+  `id` bigint unsigned NOT NULL AUTO_INCREMENT,
+  `tokenable_type` varchar(255) COLLATE  NOT NULL,
+  `tokenable_id` bigint unsigned NOT NULL,
+  `name` varchar(255) COLLATE  NOT NULL,
+  `token` varchar(64) COLLATE  NOT NULL,
+  `abilities` text COLLATE ,
+  `last_used_at` timestamp NULL DEFAULT NULL,
+  `expires_at` timestamp NULL DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `personal_access_tokens_token_unique` (`token`),
+  KEY `personal_access_tokens_tokenable_type_tokenable_id_index` (`tokenable_type`,`tokenable_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=25 DEFAULT CHARSET=utf8mb4 COLLATE=;
+
+CREATE TABLE `Productos` (
+  `id` char(36) CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NOT NULL,
+  `nombre` varchar(255) DEFAULT NULL,
+  `stock` int DEFAULT NULL,
+  `createdAt` datetime NOT NULL,
+  `updatedAt` datetime NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+CREATE TABLE `sessions` (
+  `id` varchar(255) COLLATE  NOT NULL,
+  `user_id` bigint unsigned DEFAULT NULL,
+  `ip_address` varchar(45) COLLATE  DEFAULT NULL,
+  `user_agent` text COLLATE ,
+  `payload` longtext COLLATE  NOT NULL,
+  `last_activity` int NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `sessions_user_id_index` (`user_id`),
+  KEY `sessions_last_activity_index` (`last_activity`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=;
+
+CREATE TABLE `testimonios` (
+  `id` bigint unsigned NOT NULL AUTO_INCREMENT,
+  `descripcion` varchar(500) COLLATE  NOT NULL,
+  `video` varchar(255) COLLATE  NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=;
+
+CREATE TABLE `User` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `nombre` varchar(255) DEFAULT NULL,
+  `createdAt` datetime NOT NULL,
+  `updatedAt` datetime NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+CREATE TABLE `users` (
+  `id` bigint unsigned NOT NULL AUTO_INCREMENT,
+  `name` varchar(255) COLLATE  NOT NULL,
+  `email` varchar(255) COLLATE  NOT NULL,
+  `email_verified_at` timestamp NULL DEFAULT NULL,
+  `password` varchar(255) COLLATE  NOT NULL,
+  `remember_token` varchar(100) COLLATE  DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `users_email_unique` (`email`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=;
+
+CREATE TABLE `visions` (
+  `id` bigint unsigned NOT NULL AUTO_INCREMENT,
+  `imagen` varchar(255) COLLATE  NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=;
+
+INSERT INTO `banner_images` (`id`, `imagen`, `titulo`, `descripcion`, `created_at`, `updated_at`) VALUES
+(1, '/storage/banner/ae7oLUxg0JQVJxLqqphw5lMtBe2HXbwO8gMl33Io.jpg', 'cultura de servicio', 'bienvenido a nuestra familia', '2024-04-29 01:29:38', '2024-05-10 00:11:24');
+
+
+
+
+
+
+INSERT INTO `contactos` (`id`, `nombre`, `apellido`, `email`, `telefono`, `mensaje`, `created_at`, `updated_at`) VALUES
+(1, 'bayron', 'meneses', 'bairon@meneses.com', '34567890', 'Quiero cotiza un vehiculo de su catalogo', '2024-05-09 03:38:12', '2024-05-09 03:38:12');
+
+
+
+
+
+
+INSERT INTO `fototecas` (`id`, `imagen`, `seccion`, `created_at`, `updated_at`) VALUES
+(14, '/storage/fototeca/kdWAKcxxIExqgXkMmiHym27w9gJRR9DVJqM4qxQ0.jpg', 1, '2024-05-10 00:17:34', '2024-05-10 00:17:34');
+INSERT INTO `fototecas` (`id`, `imagen`, `seccion`, `created_at`, `updated_at`) VALUES
+(15, '/storage/fototeca/xb96yApeUpG7W7rtXw7pPbKbzIJJWPIrlFNZFk9g.jpg', 1, '2024-05-10 00:17:44', '2024-05-10 00:17:44');
+INSERT INTO `fototecas` (`id`, `imagen`, `seccion`, `created_at`, `updated_at`) VALUES
+(16, '/storage/fototeca/sZUYNZgx46yPMPl1xkOf1g1v9y6Aqvms5Evv5Wki.jpg', 1, '2024-05-10 00:17:56', '2024-05-10 00:17:56');
+INSERT INTO `fototecas` (`id`, `imagen`, `seccion`, `created_at`, `updated_at`) VALUES
+(17, '/storage/fototeca/PbIRA4dAzRuypYWKsUfP9h6qItpOs5t0xRzoDo8P.jpg', 1, '2024-05-10 00:18:05', '2024-05-10 00:18:05'),
+(18, '/storage/fototeca/C7mIj8cXPriqhsREOcrq1TB6WoUcpwTSTi9cVBiT.jpg', 1, '2024-05-10 00:18:17', '2024-05-10 00:18:17'),
+(19, '/storage/fototeca/Sk4tlv3s4xD5BZb6sWsQ4NXDZOy6VFpzeDpMaAta.jpg', 1, '2024-05-10 00:18:27', '2024-05-10 00:18:27'),
+(20, '/storage/fototeca/xC1Yp4rsh7pekuUpnWgfmZIflxrjBmG4UT41oOvU.jpg', 1, '2024-05-10 00:18:38', '2024-05-10 00:18:38'),
+(21, '/storage/fototeca/seQ2AvWpbIa0x8SIJWDShHUhkr0AuOQq0D8zmKIw.jpg', 2, '2024-05-10 00:19:35', '2024-05-10 00:19:35'),
+(22, '/storage/fototeca/Qs1Lu7nKtc6TdO4pumMAVCrcK8U5SgZuHuA0xaPK.jpg', 2, '2024-05-10 00:19:44', '2024-05-10 00:19:44');
+
+
+
+
+
+INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
+(1, '0001_01_01_000000_create_users_table', 1);
+INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
+(2, '0001_01_01_000001_create_cache_table', 1);
+INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
+(3, '0001_01_01_000002_create_jobs_table', 1);
+INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
+(4, '2024_04_23_011026_create_personal_access_tokens_table', 1),
+(6, '2024_04_28_233553_create_banner_image', 2),
+(7, '2024_04_29_160002_create_mision', 3),
+(8, '2024_04_29_182909_create_visions', 4),
+(11, '2024_04_30_150336_create_fototecas_table', 5),
+(12, '2024_04_30_193923_create_testimonios_table', 6),
+(13, '2024_05_09_021014_create_contactos_table', 7);
+
+INSERT INTO `misions` (`id`, `imagen`, `created_at`, `updated_at`) VALUES
+(1, '/storage/mision/VXpnSuBdrFhP0ULraQ2bcGSSwgyEnTQ7B9knvVYB.jpg', '2024-04-29 16:40:22', '2024-05-10 00:12:02');
+
+
+
+
+INSERT INTO `personal_access_tokens` (`id`, `tokenable_type`, `tokenable_id`, `name`, `token`, `abilities`, `last_used_at`, `expires_at`, `created_at`, `updated_at`) VALUES
+(1, 'App\\Models\\User', 1, 'token', 'fcc58ef2be7c8e2dc7ccc6c175895c23dcecdfb3b06b97a16e5b445179a807ad', '[\"*\"]', NULL, NULL, '2024-04-27 18:29:57', '2024-04-27 18:29:57');
+INSERT INTO `personal_access_tokens` (`id`, `tokenable_type`, `tokenable_id`, `name`, `token`, `abilities`, `last_used_at`, `expires_at`, `created_at`, `updated_at`) VALUES
+(2, 'App\\Models\\User', 1, 'token', '5e3dc746452114c5b3e896f8fdc4c7df08381ba891ae191282d63a59f039686c', '[\"*\"]', NULL, NULL, '2024-04-27 22:10:57', '2024-04-27 22:10:57');
+INSERT INTO `personal_access_tokens` (`id`, `tokenable_type`, `tokenable_id`, `name`, `token`, `abilities`, `last_used_at`, `expires_at`, `created_at`, `updated_at`) VALUES
+(3, 'App\\Models\\User', 1, 'token', 'e1dd5495e40ff0fb8d1de4bb76ad10f9997cb94fa14f2b8d4da8f8814fb152f4', '[\"*\"]', NULL, NULL, '2024-04-27 23:35:12', '2024-04-27 23:35:12');
+INSERT INTO `personal_access_tokens` (`id`, `tokenable_type`, `tokenable_id`, `name`, `token`, `abilities`, `last_used_at`, `expires_at`, `created_at`, `updated_at`) VALUES
+(4, 'App\\Models\\User', 1, 'token', '38ebefe9cd6751925ee69f945fb09a37403b803c69e58e5dbab39c9ae7440ca4', '[\"*\"]', NULL, NULL, '2024-04-28 16:05:05', '2024-04-28 16:05:05'),
+(5, 'App\\Models\\User', 1, 'token', '1515ebdec521b0c1649df7c4f7129b866bf557720dbe4123f9f4513e3dfcd530', '[\"*\"]', '2024-04-28 16:15:37', NULL, '2024-04-28 16:06:58', '2024-04-28 16:15:37'),
+(6, 'App\\Models\\User', 1, 'token', '7c7d6d4c656c645620d9eb5b50472e1061e04e0b5e764956bc965a54f38b5eb3', '[\"*\"]', '2024-04-28 16:32:31', NULL, '2024-04-28 16:22:38', '2024-04-28 16:32:31'),
+(7, 'App\\Models\\User', 1, 'token', '22c94b2664c2dddf6c09138c167aa715ebbb8fe254646239e4ef2cbd5d9f38e4', '[\"*\"]', '2024-04-28 18:05:49', NULL, '2024-04-28 18:05:46', '2024-04-28 18:05:49'),
+(8, 'App\\Models\\User', 1, 'token', 'c91ec657df8c2ae50d052e7a47b3eb9ca5fb49d5fe1710a5228d51a7171ea6bd', '[\"*\"]', '2024-04-28 18:06:29', NULL, '2024-04-28 18:06:27', '2024-04-28 18:06:29'),
+(9, 'App\\Models\\User', 1, 'token', 'fbff41aa61c0decb0085ceaceecf2c35da0542fb76b3a6ebb73121b0f30c9017', '[\"*\"]', '2024-04-28 18:07:46', NULL, '2024-04-28 18:07:10', '2024-04-28 18:07:46'),
+(10, 'App\\Models\\User', 1, 'token', '22609d1d9a16c14890b98e7a7c1a74ea30d01a84f743e67763fdbf215e255a4b', '[\"*\"]', '2024-04-28 18:08:29', NULL, '2024-04-28 18:08:07', '2024-04-28 18:08:29'),
+(11, 'App\\Models\\User', 1, 'token', '82ab17648b3d2d4698ff1952fc5a03c21d882e856f571d612644aea79a970758', '[\"*\"]', '2024-04-28 18:09:03', NULL, '2024-04-28 18:09:01', '2024-04-28 18:09:03'),
+(12, 'App\\Models\\User', 1, 'token', '052fe7a517508b7f3472ee9c5475a5e8e55756adbc14bb1a2ded46a8539eb41b', '[\"*\"]', '2024-04-28 18:12:34', NULL, '2024-04-28 18:12:32', '2024-04-28 18:12:34'),
+(13, 'App\\Models\\User', 1, 'token', '5d78ab303afa669ebd0b2d8fcf660537af33033addda95caedf726e3e9b783be', '[\"*\"]', '2024-04-28 18:14:39', NULL, '2024-04-28 18:14:37', '2024-04-28 18:14:39'),
+(14, 'App\\Models\\User', 1, 'token', '0be4bb08d45a67b093fef5d09265b9e0fcc20fca38a4988cde50739e50b4c044', '[\"*\"]', '2024-04-28 18:18:27', NULL, '2024-04-28 18:15:03', '2024-04-28 18:18:27'),
+(15, 'App\\Models\\User', 1, 'token', 'e1998907ea21f6530bc17d24fade47b82466e05875525074a39358bc5f3f18a1', '[\"*\"]', '2024-04-28 18:37:51', NULL, '2024-04-28 18:18:41', '2024-04-28 18:37:51'),
+(16, 'App\\Models\\User', 1, 'token', 'c50fee0e0220ca0cb93998702a53e7d7f7e29c6d4b74db73518f87885e58777b', '[\"*\"]', '2024-04-28 23:32:29', NULL, '2024-04-28 18:38:31', '2024-04-28 23:32:29'),
+(17, 'App\\Models\\User', 1, 'token', '576ffd5807958a33db2a418a860891055f389007bdc8d7487f5b5acfdb41cf36', '[\"*\"]', '2024-05-08 05:03:29', NULL, '2024-04-28 23:32:41', '2024-05-08 05:03:29'),
+(18, 'App\\Models\\User', 1, 'token', '04cf119411fe2ab7f97367fb036c5890e64d6667661d3fb41a536d1ef78cb650', '[\"*\"]', '2024-04-30 20:54:52', NULL, '2024-04-29 13:09:46', '2024-04-30 20:54:52'),
+(19, 'App\\Models\\User', 1, 'token', '19fd1a0acc53fb7850277a6d3fa65069c68430b758a454edd1b4d831e83c5678', '[\"*\"]', '2024-04-29 23:31:24', NULL, '2024-04-29 22:59:58', '2024-04-29 23:31:24'),
+(20, 'App\\Models\\User', 1, 'token', '01b316a9c9fa737b6b8e897dcb8bdaaa3af6b1cbb8cedb7d154e93ea01e9fd01', '[\"*\"]', '2024-04-30 13:06:52', NULL, '2024-04-30 12:28:56', '2024-04-30 13:06:52'),
+(21, 'App\\Models\\User', 1, 'token', '0743724cea23422475bc3c0d71e8e656172bbc67369b609206fbccc4e8ab69a8', '[\"*\"]', '2024-05-02 14:46:15', NULL, '2024-04-30 13:36:24', '2024-05-02 14:46:15'),
+(22, 'App\\Models\\User', 1, 'token', '9f65ecca9c966afb618bb3df64f458b63b171d91f7274fcf19cdcfe79344dccb', '[\"*\"]', '2024-05-08 04:54:29', NULL, '2024-05-08 03:21:34', '2024-05-08 04:54:29'),
+(23, 'App\\Models\\User', 1, 'token', '13ffb47f19903ac3856af9241094133ccb349b9a425ff1d855fb7e6ed59ed421', '[\"*\"]', '2024-05-09 04:05:22', NULL, '2024-05-09 00:35:15', '2024-05-09 04:05:22'),
+(24, 'App\\Models\\User', 1, 'token', 'eeda291b86f604e1d2f685b5d1f4d8e31fc3bea9a7f7647c0980a456c01150e3', '[\"*\"]', '2024-05-10 00:19:48', NULL, '2024-05-09 23:56:37', '2024-05-10 00:19:48');
+
+
+
+INSERT INTO `sessions` (`id`, `user_id`, `ip_address`, `user_agent`, `payload`, `last_activity`) VALUES
+('EquD204BfrzbpmQUhp6ySuFuP8mZHR6ZdqyJUCdb', NULL, '205.169.39.133', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/79.0.3945.79 Safari/537.36', 'YTozOntzOjY6Il90b2tlbiI7czo0MDoiaVpKNGs5RFhYQVBtbVdFNjBTdUtCaFNKQUhxODRYOENoN1NMdFpZWSI7czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6Mjc6Imh0dHBzOi8vYXBpLnZmbW90b3JzLmNvbS5jbyI7fXM6NjoiX2ZsYXNoIjthOjI6e3M6Mzoib2xkIjthOjA6e31zOjM6Im5ldyI7YTowOnt9fX0=', 1715292425);
+INSERT INTO `sessions` (`id`, `user_id`, `ip_address`, `user_agent`, `payload`, `last_activity`) VALUES
+('HPllz6I3WnfWQhjQc6VH6TKRFp0ZiQ0VBZnVVv8P', NULL, '200.112.213.198', 'Mozilla/5.0 (Linux; Android 10; K) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Mobile Safari/537.36', 'YTozOntzOjY6Il90b2tlbiI7czo0MDoibjdwRlpvVGVlSUVWTjZTSDVzOFNhMDBjQzdQZFA0azJmU2dDajFRYiI7czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6Mjc6Imh0dHBzOi8vYXBpLnZmbW90b3JzLmNvbS5jbyI7fXM6NjoiX2ZsYXNoIjthOjI6e3M6Mzoib2xkIjthOjA6e31zOjM6Im5ldyI7YTowOnt9fX0=', 1715286089);
+INSERT INTO `sessions` (`id`, `user_id`, `ip_address`, `user_agent`, `payload`, `last_activity`) VALUES
+('mljDxfLCPSpCtqUKWXpE4KEkWRYAOc5ZxONepDU7', NULL, '2a02:4780:13:c0de::2f', 'Go-http-client/2.0', 'YToyOntzOjY6Il90b2tlbiI7czo0MDoiRVpnTnBXVlJXUVlHSjY3enlMNFNUclN4MGlDcFIwZU9JWFJZQ1pNbiI7czo2OiJfZmxhc2giO2E6Mjp7czozOiJvbGQiO2E6MDp7fXM6MzoibmV3IjthOjA6e319fQ==', 1715299528);
+INSERT INTO `sessions` (`id`, `user_id`, `ip_address`, `user_agent`, `payload`, `last_activity`) VALUES
+('OfAOSw5FOr8NxectxRQAyFuNxKPAvcM6237bFZ9O', NULL, '205.169.39.133', 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/83.0.4103.61 Safari/537.36', 'YTozOntzOjY6Il90b2tlbiI7czo0MDoiQm1QOWpxVm05SDBYcEdOQ2ZrS2R1NG5IQXNmOGQ1RHZMR010N0VxaSI7czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6Mjc6Imh0dHBzOi8vYXBpLnZmbW90b3JzLmNvbS5jbyI7fXM6NjoiX2ZsYXNoIjthOjI6e3M6Mzoib2xkIjthOjA6e31zOjM6Im5ldyI7YTowOnt9fX0=', 1715292417),
+('xqFIIRBnlpLC62Vlf2sQAyd8iMVDlAD81Sszu1Sm', NULL, '181.157.198.198', 'Mozilla/5.0 (iPhone; CPU iPhone OS 17_4_1 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/17.4.1 Mobile/15E148 Safari/604.1', 'YTozOntzOjY6Il90b2tlbiI7czo0MDoiVjFsZ3RGaUJXREkzMUQzV2dJOEQ3ZnJmbUtwU3B0NldZMTRNenFvaSI7czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6Mjc6Imh0dHBzOi8vYXBpLnZmbW90b3JzLmNvbS5jbyI7fXM6NjoiX2ZsYXNoIjthOjI6e3M6Mzoib2xkIjthOjA6e31zOjM6Im5ldyI7YTowOnt9fX0=', 1715285253),
+('zapOLE6EcuEftCHBpcexIEF06EN8FctQVFEi6jQu', NULL, '181.157.198.198', 'Mozilla/5.0 (iPhone; CPU iPhone OS 17_4_1 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/17.4.1 Mobile/15E148 Safari/604.1', 'YTozOntzOjY6Il90b2tlbiI7czo0MDoiaXRHNW1FeWloUEZ5Sk9QQzZ6SDdGb2FSTGFIRm0xV2lGOWgxUnd4TyI7czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6Mjc6Imh0dHBzOi8vYXBpLnZmbW90b3JzLmNvbS5jbyI7fXM6NjoiX2ZsYXNoIjthOjI6e3M6Mzoib2xkIjthOjA6e31zOjM6Im5ldyI7YTowOnt9fX0=', 1715293973);
+
+INSERT INTO `testimonios` (`id`, `descripcion`, `video`, `created_at`, `updated_at`) VALUES
+(4, 'vide del ecomerce que se entrego en 2023', '/storage/testimonios/mtCjSkUpzQeWXgpIDUjyOERfnD9lsvFYj9Yv6N37.mp4', '2024-05-10 00:04:19', '2024-05-10 00:04:19');
+
+
+
+
+INSERT INTO `users` (`id`, `name`, `email`, `email_verified_at`, `password`, `remember_token`, `created_at`, `updated_at`) VALUES
+(1, 'Administrador', 'admin@admin.com', NULL, '$2y$12$B6zkn2hRD6orKdLKWjNF0.oELOlJi79YmVZ/2gBkqfYZq9L.Pn1hi', NULL, '2024-04-27 18:06:07', '2024-04-27 18:06:07');
+
+
+INSERT INTO `visions` (`id`, `imagen`, `created_at`, `updated_at`) VALUES
+(1, '/storage/vision/SbneLFKCAdP8W2K4Yvpy18UEWYZ59R9XoIsRWNDr.jpg', '2024-04-29 19:01:28', '2024-05-10 00:16:00');
+
+
+
+/*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
+/*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
+/*!40014 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS */;
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+/*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;

@@ -43,7 +43,7 @@ export const HomeMision = () => {
                 {/* imagen */}
                 <motion.div initial={{x:-100 , opacity:0}} transition={{duration:1 }} whileInView={{ x:0 , opacity:1}} 
                 className="w-full flex items-end justify-center ">
-                    <img src={`${urlImage}${informacion?.succes?.imagen}`} alt="Imagen de mision" className=" opacity-90 w-full h-auto" style={{
+                    <img loading="lazy" src={`${urlImage}${informacion?.succes?.imagen}`} alt="Imagen de mision" className=" opacity-90 w-full h-auto" style={{
                         maskImage: "linear-gradient(black 90%,transparent 100%)",
                     }}/>
                 </motion.div>

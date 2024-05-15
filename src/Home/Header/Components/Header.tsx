@@ -73,7 +73,7 @@ export const Header = () => {
         </motion.div>
         <img
           // src={"./Imagenes/bmw.webp"}
-          src={`${urlImage}${informacion.succes.imagen}`}
+          src={`${urlImage}${informacion?.succes?.imagen}`}
           alt=""
           className=" md:object-fill object-cover  brightness-50    w-full h-full"
           style={{

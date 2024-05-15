@@ -1,6 +1,6 @@
-import axios, { AxiosError, isAxiosError } from "axios";
+import axios, {  isAxiosError } from "axios";
 import { Dispatch } from "react";
-import { Error, Errors, Login } from "./DTO/dtoLogin";
+import {  Login } from "./DTO/dtoLogin";
 
 
 interface credenciales{
@@ -12,6 +12,7 @@ type setError = Dispatch<any>
 
 export const useAuth = () => {
     const url = import.meta.env.VITE_API_URL;
+    console.log(url)
     const login = async(datos:credenciales,setResponse:SetResponse,setError:setError) =>
     {
         try {

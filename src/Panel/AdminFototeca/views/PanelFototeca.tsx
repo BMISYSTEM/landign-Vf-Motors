@@ -143,7 +143,7 @@ export const PanelFototeca = () => {
                 </tr>
               </thead>
               <tbody>
-                {index.succes.map((data) => (
+                {index?.succes?.map((data) => (
                   <tr className="text-slate-300 text-center border-b">
                     <td>
                       {data.seccion === 1

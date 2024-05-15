@@ -16,13 +16,15 @@ export const HomeInventario = () => {
     inicial: 0,
     final: 0,
   });
-  const [expanFiltros,setexpanFiltros] = useState(false);
+  const [expanFiltros, setexpanFiltros] = useState(false);
   if (isLoading) {
     return (
       <section className="w-full h-screen bg-slate-950 text-white">
-        <p className="text-slate-300 text-2xl font-bold">Cargando inventario...</p>
+        <p className="text-slate-300 text-2xl font-bold">
+          Cargando inventario...
+        </p>
       </section>
-  );
+    );
   }
   let vehiculos: Respuesta = data?.data[0];
   // filtro busqueda
@@ -81,6 +83,18 @@ export const HomeInventario = () => {
       ),
     };
   }
+  // Primero, crea un conjunto (Set) para almacenar marcas únicas
+  const marcasUnicas = new Set<string>();
+
+  // Llena el conjunto con marcas únicas
+  vehiculos?.succes.forEach((vehiculo) => {
+    marcasUnicas.add(vehiculo.marca_nombre);
+  });
+
+  // Luego, convierte el conjunto en un array para poder mapearlo
+  const marcasUnicasArray = Array.from(marcasUnicas);
+
+  console.log(marcasUnicasArray);
   return (
     <Element name="inventario">
       <section className="w-full h-screen flex flex-col gap-5  overflow-hidden  bg-slate-950">
@@ -128,13 +142,31 @@ export const HomeInventario = () => {
         >
           {/* filtros */}
           <div className="md:hidden flex w-full">
-            <button className="border p-2 rounded-full bg-green-500" onClick={()=>setexpanFiltros(!expanFiltros)}>
-              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="w-6 h-6 text-white">
-                <path strokeLinecap="round" strokeLinejoin="round" d="M12 3c2.755 0 5.455.232 8.083.678.533.09.917.556.917 1.096v1.044a2.25 2.25 0 0 1-.659 1.591l-5.432 5.432a2.25 2.25 0 0 0-.659 1.591v2.927a2.25 2.25 0 0 1-1.244 2.013L9.75 21v-6.568a2.25 2.25 0 0 0-.659-1.591L3.659 7.409A2.25 2.25 0 0 1 3 5.818V4.774c0-.54.384-1.006.917-1.096A48.32 48.32 0 0 1 12 3Z" />
+            <button
+              className="border p-2 rounded-full bg-green-500"
+              onClick={() => setexpanFiltros(!expanFiltros)}
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                strokeWidth="1.5"
+                stroke="currentColor"
+                className="w-6 h-6 text-white"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  d="M12 3c2.755 0 5.455.232 8.083.678.533.09.917.556.917 1.096v1.044a2.25 2.25 0 0 1-.659 1.591l-5.432 5.432a2.25 2.25 0 0 0-.659 1.591v2.927a2.25 2.25 0 0 1-1.244 2.013L9.75 21v-6.568a2.25 2.25 0 0 0-.659-1.591L3.659 7.409A2.25 2.25 0 0 1 3 5.818V4.774c0-.54.384-1.006.917-1.096A48.32 48.32 0 0 1 12 3Z"
+                />
               </svg>
             </button>
           </div>
-          <div className={`${expanFiltros ? 'flex' : 'hidden md:flex'} bg-[#1D2432] md:w-60 w-full md:h-screen h-[50rem] border-2 border-green-500  flex-col gap-3 rounded-lg p-2  `}>
+          <div
+            className={`${
+              expanFiltros ? "flex" : "hidden md:flex"
+            } bg-[#1D2432] md:w-60 w-full md:h-screen h-[50rem] md:overflow-hidden border-2 border-green-500  flex-col gap-3 rounded-lg p-2  `}
+          >
             <button
               onClick={() => {
                 setBusqueda("");
@@ -148,33 +180,10 @@ export const HomeInventario = () => {
             >
               Borrar filtros
             </button>
-            <h1 className={`text-2xl font-bold text-white`}>Marcas</h1>
-            <button
-              onClick={() => setBusquedaMarca("kia")}
-              className={` ${busquedaMarcas === 'kia' ? 'bg-green-500 ': null} border-2 rounded-xl border-green-500 p-2 md:text-lg text-sm text-slate-200 font-bold hover:bg-green-500 transition-all`}
-            >
-              Kia
-            </button>
-            <button
-              onClick={() => setBusquedaMarca("chevrolet")}
-              className={` ${busquedaMarcas === 'chevrolet' ? 'bg-green-500 ': null} border-2 rounded-xl border-green-500 p-2 md:text-lg text-sm text-slate-200 font-bold hover:bg-green-500 transition-all`}
-            >
-              Chevrolet
-            </button>
-            <button
-              onClick={() => setBusquedaMarca("mazda")}
-              className={` ${busquedaMarcas === 'mazda' ? 'bg-green-500 ': null} border-2 rounded-xl border-green-500 p-2 md:text-lg text-sm text-slate-200 font-bold hover:bg-green-500 transition-all`}
-
-            >
-              Mazda
-            </button>
-            <button
-              onClick={() => setBusquedaMarca("hiunday")}
-              className={` ${busquedaMarcas === 'hiunday' ? 'bg-green-500 ': null} border-2 rounded-xl border-green-500 p-2 md:text-lg text-sm text-slate-200 font-bold hover:bg-green-500 transition-all`}
-            >
-              Hiunday
-            </button>
-            <h1 className="md:text-2xl text-lg font-bold text-white">Precios</h1>
+           
+            <h1 className="md:text-2xl text-lg font-bold text-white">
+              Precios
+            </h1>
             <button
               onClick={() =>
                 setBusquedaRango({
@@ -219,28 +228,41 @@ export const HomeInventario = () => {
             >
               mas de 100 millones.
             </button>
+            {/* --------------------------------------------------------------------------- */}
+            <h1 className={`text-2xl font-bold text-white`}>Marcas</h1>
+            {marcasUnicasArray.map((marca, index) => (
+              <button
+              key={index}
+              onClick={() => setBusquedaMarca(marca)}
+              className={` ${busquedaMarcas === marca ? 'bg-green-500 ': null} border-2 rounded-xl border-green-500 p-2 md:text-lg text-sm text-slate-200 font-bold hover:bg-green-500 transition-all`}
+              >
+                {marca}
+              </button>
+            ))}
           </div>
           {/* resultado */}
           <div className="w-full h-auto grid md:grid-cols-3 grid-cols-2 gap-5 ">
-            {vehiculos?.succes.map((vehiculo, index) => (
-              <TarjetaVehiculo key={index}>
-                <Imagenes
-                  foto1={"https://public.cartmots.com" + vehiculo.foto1}
-                  foto2={"https://public.cartmots.com" + vehiculo.foto2}
-                  foto3={"https://public.cartmots.com" + vehiculo.foto3}
-                  foto4={"https://public.cartmots.com" + vehiculo.foto4}
-                />
-                <DatosVehiculo
-                  caja={vehiculo.caja}
-                  linea={vehiculo.linea}
-                  marca={vehiculo.marca_nombre}
-                  modelo={vehiculo.model_nombre}
-                  placa={vehiculo.placa}
-                  valor={vehiculo.valor}
-                  version={vehiculo.version}
-                />
-              </TarjetaVehiculo>
-            ))}
+            {vehiculos?.succes.map((vehiculo, index) =>
+              vehiculo.disponibilidad ? (
+                <TarjetaVehiculo key={index}>
+                  <Imagenes
+                    foto1={"https://public.cartmots.com" + vehiculo.foto1}
+                    foto2={"https://public.cartmots.com" + vehiculo.foto2}
+                    foto3={"https://public.cartmots.com" + vehiculo.foto3}
+                    foto4={"https://public.cartmots.com" + vehiculo.foto4}
+                  />
+                  <DatosVehiculo
+                    caja={vehiculo.caja}
+                    linea={vehiculo.linea}
+                    marca={vehiculo.marca_nombre}
+                    modelo={vehiculo.model_nombre}
+                    placa={vehiculo.placa}
+                    valor={vehiculo.valor}
+                    version={vehiculo.version}
+                  />
+                </TarjetaVehiculo>
+              ) : null
+            )}
           </div>
         </section>
       </section>
