@@ -56,7 +56,7 @@ export const Header = () => {
             {informacion?.succes?.descripcion}
           </h2>
           <div id="tenth" className={`${styles.button} `}>
-            <button className="text-white p-2 border-2 border-white  font-bold font-serif bg-green-500 rounded-sm shadow-xl shadow-green-300 hover:bg-green-700 hover:scale-110 transition-all">
+            <a href="https://wa.me/message/IH5SZDTONQ5MK1"  className="text-white p-2 border-2 border-white  font-bold font-serif bg-green-500 rounded-sm shadow-xl shadow-green-300 hover:bg-green-700 hover:scale-110 transition-all">
               <span className={`${styles.span} text-2xl`}>C</span>
               <span className={`${styles.span} text-2xl`}>o</span>
               <span className={`${styles.span} text-2xl`}>n</span>
@@ -68,10 +68,17 @@ export const Header = () => {
               <span className={`${styles.span} text-2xl`}>n</span>
               <span className={`${styles.span} text-2xl`}>o</span>
               <span className={`${styles.span} text-2xl`}>s</span>
-            </button>
+            </a>
           </div>
         </motion.div>
-        <img
+        <video  className=" md:object-fill object-cover  brightness-50    w-full h-full"
+          style={{
+            // WebkitMaskImage: 'linear-gradient(to botton, transparent, black)', // Degradado lineal de transparente a negro
+            maskImage: "linear-gradient(black 90%,transparent 100%)",
+          }} loop autoPlay muted>
+          <source src={`${urlImage}${informacion?.succes?.imagen}`} type="video/mp4"/>
+        </video>
+        {/* <img
           // src={"./Imagenes/bmw.webp"}
           src={`${urlImage}${informacion?.succes?.imagen}`}
           alt=""
@@ -80,7 +87,7 @@ export const Header = () => {
             // WebkitMaskImage: 'linear-gradient(to botton, transparent, black)', // Degradado lineal de transparente a negro
             maskImage: "linear-gradient(black 90%,transparent 100%)",
           }}
-        />
+        /> */}
       </section>
     </Element>
   );

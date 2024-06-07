@@ -72,7 +72,7 @@ export const PanelBanner = () => {
           <input
             type="file"
             onChange={handleImagenChange}
-            accept="image/png, image/jpeg"
+            accept="video/mp4"
           />
           {/* mense de errores en la imagen  */}
           {error?.errors?.imagen ? (

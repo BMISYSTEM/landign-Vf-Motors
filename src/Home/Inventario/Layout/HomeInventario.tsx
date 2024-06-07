@@ -90,11 +90,8 @@ export const HomeInventario = () => {
   vehiculos?.succes.forEach((vehiculo) => {
     marcasUnicas.add(vehiculo.marca_nombre);
   });
-
   // Luego, convierte el conjunto en un array para poder mapearlo
   const marcasUnicasArray = Array.from(marcasUnicas);
-
-  console.log(marcasUnicasArray);
   return (
     <Element name="inventario">
       <section className="w-full h-screen flex flex-col gap-5  overflow-hidden  bg-slate-950">
@@ -246,12 +243,11 @@ export const HomeInventario = () => {
               vehiculo.disponibilidad ? (
                 <TarjetaVehiculo key={index}>
                   <Imagenes
+                    id={vehiculo.id}
                     foto1={"https://public.cartmots.com" + vehiculo.foto1}
                     foto2={"https://public.cartmots.com" + vehiculo.foto2}
                     foto3={"https://public.cartmots.com" + vehiculo.foto3}
                     foto4={"https://public.cartmots.com" + vehiculo.foto4}
-                  />
-                  <DatosVehiculo
                     caja={vehiculo.caja}
                     linea={vehiculo.linea}
                     marca={vehiculo.marca_nombre}
@@ -259,7 +255,9 @@ export const HomeInventario = () => {
                     placa={vehiculo.placa}
                     valor={vehiculo.valor}
                     version={vehiculo.version}
+                    kilometraje={vehiculo.kilometraje}
                   />
+
                 </TarjetaVehiculo>
               ) : null
             )}

@@ -6,13 +6,13 @@ export const HomeFooter = () => {
         {/* redes sociales */}
         <div className="w-full h-auto flex  justify-center ">
             <div className="w-1/2 flex flex-row gap-2   justify-center">
-                <a href="" className="hover:animate-pulse">
+                <a href="https://www.instagram.com/vfmotorscali?igsh=MTR6ZThjaWo2d3Zxaw==" className="hover:animate-pulse">
                     <img src={'/Imagenes/instagram.png'} alt="Icono de instagram" className="w-12 h-12" />
                 </a>
-                <a href="" className="hover:animate-pulse">
+                <a href="https://www.facebook.com/vfmotorscaliconcesionario?mibextid=LQQJ4d" className="hover:animate-pulse">
                     <img src={'/Imagenes/facebook.png'} alt="Icono de facebook" className="w-12 h-12" />
                 </a>
-                <a href="" className="hover:animate-pulse">
+                <a href="https://wa.me/message/IH5SZDTONQ5MK1" className="hover:animate-pulse">
                     <img src={'/Imagenes/whatsapp.png'} alt="Icono de whatsapp" className="w-12 h-12" />
                 </a>
             </div>
@@ -45,14 +45,14 @@ export const HomeFooter = () => {
             </div>
             <div className="flex flex-col gap-2">
                 <p className="text-2xl font-bold text-slate-300">Correos Autorizados</p>
-                <p className="text-slate-300">Correo@Correo.com</p>
-                <p className="text-slate-300">Correo@Correo.com</p>
+                <p className="text-slate-300">Administracion@vfmotors.com.co</p>
+                <p className="text-slate-300">Mercadeo@vfmotors.com.co</p>
                 <p className="text-2xl font-bold text-slate-300">Horarios de atencion</p>
                 <p className="text-slate-300">08:00-18:00</p>
                 <p className="text-slate-300">cr56g7671</p>
             </div>
         </div>
-        <p className="text-slate-300 text-center">Todos los derechos reservados@</p>
+        <h3 className="text-slate-300 text-center">Todos los derechos reservados &#169; Desarrollado por Syprods/CartMots.com </h3>
     </section>
   )
 }

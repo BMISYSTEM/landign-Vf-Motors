@@ -1,4 +1,5 @@
 import { MapContainer, Marker, Popup, TileLayer } from "react-leaflet";
+import "leaflet/dist/images/marker-icon.png"
 import "leaflet/dist/leaflet.css";
 import { Element } from "react-scroll";
 

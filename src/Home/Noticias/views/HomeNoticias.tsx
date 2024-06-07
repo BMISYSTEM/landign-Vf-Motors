@@ -1,7 +1,37 @@
+import useSWR from "swr";
 import { TarjetaNoticia } from "../components/TarjetaNoticia";
 import { Link } from 'react-router-dom';
+import axios from "axios";
+export interface Noticias {
+  succes: Succe[];
+}
+
+export interface Succe {
+  id: number;
+  titulo: string;
+  imagen: string;
+  noticia: string;
+  created_at: Date;
+  updated_at: Date;
+}
 
 export const HomeNoticias = () => {
+  const url = import.meta.env.VITE_API_URL;
+  const urlImagen = import.meta.env.VITE_API_URL_IMAGE;
+  const { data, isLoading } = useSWR(`${url}/indexnoticias`, () =>
+    axios.get(`${url}/indexnoticias`)
+  );
+  if (isLoading) {
+    return (
+      <div className="w-full h-screen grid place-items-center bg-slate-950">
+        <p className="text-3xl font-bold text-green-500 animate-bounce">
+          Cargando Noticias...
+        </p>
+
+      </div>
+    );
+  }
+  const listaNoticias: Noticias = data?.data;
   return (
     <section className="w-full h-screen flex flex-col  gap-2 bg-slate-950 items-center  ">
         <div className="w-full h-10  flex flex-row justify-between">
@@ -18,26 +48,16 @@ export const HomeNoticias = () => {
       {/* noticias */}
       <section className="w-full h-full  flex flex-row flex-wrap gap-5 overflow-auto p-3 justify-center items-start">
         {/* tarjeta de noticia */}
-        <TarjetaNoticia 
-        imagen="imagn1" 
-        noticia=" as empresas de servicios públicos de Acueducto y la compañía de energía Enel Codensa han anunciado la realización de cortes programados en sus servicios para el este martes 23 de abril.
-                Estas interrupciones temporales se llevarán a cabo con el objetivo de racionar agua frente a la crisis crítica en los embalses y mantenimiento en el servicio eléctrico.
-                ​(También: Los cortes de luz para este martes 23 de abril en Bogotá: direcciones y horas de restablecimiento).
-                La compañía Enel informó que el tiempo de suspensión se dará de acuerdo al trabajo que se realice. Los cortes de energía pueden durar de dos a ocho horas, por ello, es importante que esté prevenido para que no afecte su día cotidiano.
-                Asimismo, recuerde que el racionamiento del servicio de agua iniciará a las 8 a.m. y durará 24 horas. " 
-        titulo="Pilas: estos son los barrios de Bogotá que tendrán cortes de agua y luz al tiempo este martes 23 de abril"
-        key={1}
-        />
-        <TarjetaNoticia 
-        imagen="imagn1" 
-        noticia=" as empresas de servicios públicos de Acueducto y la compañía de energía Enel Codensa han anunciado la realización de cortes programados en sus servicios para el este martes 23 de abril.
-                Estas interrupciones temporales se llevarán a cabo con el objetivo de racionar agua frente a la crisis crítica en los embalses y mantenimiento en el servicio eléctrico.
-                ​(También: Los cortes de luz para este martes 23 de abril en Bogotá: direcciones y horas de restablecimiento).
-                La compañía Enel informó que el tiempo de suspensión se dará de acuerdo al trabajo que se realice. Los cortes de energía pueden durar de dos a ocho horas, por ello, es importante que esté prevenido para que no afecte su día cotidiano.
-                Asimismo, recuerde que el racionamiento del servicio de agua iniciará a las 8 a.m. y durará 24 horas. " 
-        titulo="Pilas: estos son los barrios de Bogotá que tendrán cortes de agua y luz al tiempo este martes 23 de abril"
-        key={1}
-        />
+        {listaNoticias?.succes?.map((noticia,index)=>(
+            <TarjetaNoticia 
+            imagen={`${urlImagen}${noticia.imagen}`}
+            titulo={noticia.titulo}
+            noticia={noticia.noticia}
+            fecha={noticia.created_at}
+            key={index}
+            />
+        ))}
+
       </section>
     </section>
   );

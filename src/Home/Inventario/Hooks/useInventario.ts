@@ -25,8 +25,8 @@ export interface Succe {
     caja:           string;
     version:        string;
     linea:          string;
-    soat:           Date;
-    tecnomecanica:  Date | null;
+    soat:           string;
+    tecnomecanica:  string | null;
     marca_nombre:   string;
     model_nombre:   string;
     estado_nombre:  string;
@@ -38,7 +38,7 @@ export const useInventario = () => {
     const {data,error,isLoading,mutate} = useSWR('https://public.cartmots.com/api/allvehiculo?limite=1000&offset=1',()=>
     axios('https://public.cartmots.com/api/allvehiculo?limite=1000&offset=1',{
         headers:{
-            Authorization:`Bearer 1284|RYYRkE6sSqTU434Oxj36EHop8bqOV7BwNk0FK5Hx`
+            Authorization:`Bearer 1501|8ZvSUE5J9xxWcMmZHA5CKnqyMIF37ccAB7orMQz1`
         }
     }))
 

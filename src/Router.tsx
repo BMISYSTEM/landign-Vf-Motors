@@ -1,6 +1,7 @@
 import { createBrowserRouter } from "react-router-dom";
 import { HomeLayout } from "./Home/Layout/HomeLayout";
 import { HomeInventario } from "./Home/Inventario/Layout/HomeInventario";
+import { InventarioVehiculoDetalle } from "./Home/Inventario/Components/InventarioVehiculoDetalle";
 import { HomeNoticias } from "./Home/Noticias/views/HomeNoticias";
 import { PanelLayout } from "./Panel/Layout/PanelLayout";
 import { PanelBanner } from "./Panel/AdminHeader/views/PanelBanner";
@@ -20,6 +21,10 @@ const router = createBrowserRouter([
     {
         path:'/inventario',
         element:<HomeInventario/>
+    },
+    {
+        path:'/inventario/detalle/:id',
+        element:<InventarioVehiculoDetalle/>
     },
     {
         path:'/noticias',
