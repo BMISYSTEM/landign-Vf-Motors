@@ -72,8 +72,8 @@ export const InventarioVehiculoDetalle = () => {
       ),
     };
   return (
-    <section className="w-full h-screen bg-slate-950  flex flex-row overflow-hidden ">
-        <section className="w-1/3 flex flex-col gap-3 p-4  h-full overflow-auto justify-center ">
+    <section className="w-full md:h-screen h-full bg-slate-950  flex md:flex-row flex-col md:overflow-hidden ">
+        <section className="md:w-1/3 w-full flex flex-col gap-3 p-4  h-full overflow-auto justify-center ">
           <div className="w-full h-full  flex flex-col ">
             <img src="/Imagenes/logo.png" alt="" className="w-40 "/>
             <Link to={'/inventario'} className="w-full flex flex-row gap-2 items-center">
@@ -152,11 +152,21 @@ export const InventarioVehiculoDetalle = () => {
                     <p className="text-sm font-bold text-slate-400">{vehiculos?.succes[0].tecnomecanica  ? ( vehiculos.succes[0].tecnomecanica) : '--'}</p>
                   </div>
                 </div>
-                
               </div>
           </div>
+                {/* contacto de asesor */}
+                <div className="w-full h-full">
+                  {/* texto */}
+                  <div className="w-full">
+                    <p className="text-2xl font-bold text-white">Contacte un asesor</p>
+                    <p className="text-sm text-slate-400">Selecciona la opcion de preferencia para que un asesor se comunique con usted</p>
+                  </div>
+                  <button className="text-white bg-green-600 p-2 font-bold w-full">
+                    WHATSAPP
+                  </button>
+                </div>
         </section>
-        <section className="w-2/3 h-full flex flex-col   relative">
+        <section className="md:w-2/3 w-full h-full flex flex-col   relative">
             <div className="w-full h-full ">
                 <img src={"https://public.cartmots.com" + vehiculos?.succes[0].foto1} alt=""  className={`${img === 1 ? 'animate__animated animate__fadeIn' : 'hidden'}`}/>
                 <img src={"https://public.cartmots.com" + vehiculos?.succes[0].foto2} alt=""  className={`${img === 2 ? 'animate__animated animate__fadeIn' : 'hidden'}`}/>
