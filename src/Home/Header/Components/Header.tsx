@@ -2,7 +2,6 @@ import { Element } from "react-scroll";
 // import fotoheader from '../Assets/vfinstalaciones.png'
 import { motion } from "framer-motion";
 import styles from '../css/AnimationButton.module.css'
-import stylesp from '../css/AnimationMaquina.module.css'
 import { useContext } from "react";
 import { HomeContext } from "../../Context/HomeContext";
 import useSWR from "swr";
@@ -51,23 +50,23 @@ export const Header = () => {
           whileInView={{ x: 0, opacity: 1 }}
           className={`${modalLogin === true ? 'hidden' : null} flex flex-col absolute items-center justify-center gap-5  z-10`}
         >
-          <h1 className={`${stylesp.h1} md:text-6xl text-xl text-white font-bold`}>{informacion?.succes?.titulo}</h1>
-          <h2 className={`${stylesp.h2} md:text-4xl text-lg text-white font-bold`}>
+          <h1 className={`font-serif md:text-6xl text-xl text-white font-bold`}>{informacion?.succes?.titulo}</h1>
+          <h2 className={`font-serif md:text-4xl text-lg text-white font-bold`}>
             {informacion?.succes?.descripcion}
           </h2>
           <div id="tenth" className={`${styles.button} `}>
             <a href="https://wa.me/message/IH5SZDTONQ5MK1"  className="text-white p-2 border-2 border-white  font-bold font-serif bg-green-500 rounded-sm shadow-xl shadow-green-300 hover:bg-green-700 hover:scale-110 transition-all">
-              <span className={`${styles.span} text-2xl`}>C</span>
-              <span className={`${styles.span} text-2xl`}>o</span>
-              <span className={`${styles.span} text-2xl`}>n</span>
-              <span className={`${styles.span} text-2xl`}>t</span>
-              <span className={`${styles.span} text-2xl`}>a</span>
-              <span className={`${styles.span} text-2xl`}>c</span>
-              <span className={`${styles.span} text-2xl`}>t</span>
-              <span className={`${styles.span} text-2xl`}>e</span>
-              <span className={`${styles.span} text-2xl`}>n</span>
-              <span className={`${styles.span} text-2xl`}>o</span>
-              <span className={`${styles.span} text-2xl`}>s</span>
+              <span className={`${styles.span} text-2xl`} translate="no">C</span>
+              <span className={`${styles.span} text-2xl`} translate="no">o</span>
+              <span className={`${styles.span} text-2xl`} translate="no">n</span>
+              <span className={`${styles.span} text-2xl`} translate="no">t</span>
+              <span className={`${styles.span} text-2xl`} translate="no">a</span>
+              <span className={`${styles.span} text-2xl`} translate="no">c</span>
+              <span className={`${styles.span} text-2xl`} translate="no">t</span>
+              <span className={`${styles.span} text-2xl`} translate="no">e</span>
+              <span className={`${styles.span} text-2xl`} translate="no">n</span>
+              <span className={`${styles.span} text-2xl`} translate="no">o</span>
+              <span className={`${styles.span} text-2xl`} translate="no">s</span>
             </a>
           </div>
         </motion.div>
