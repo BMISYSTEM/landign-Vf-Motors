@@ -34,6 +34,11 @@ export const HomeNoticias = () => {
   const listaNoticias: Noticias = data?.data;
   return (
     <section className="w-full h-screen flex flex-col  gap-2 bg-slate-950 items-center  ">
+      <div className='fixed z-50 w-16 h-16 bottom-[5%] md:left-[92%] left-[80%] hover:scale-105 transition-all'>
+              <Link to={'https://wa.me/message/IH5SZDTONQ5MK1'}>
+                <img src={'/Imagenes/whatsapp.png'} alt="" className=' h-auto hover:cursor-pointer hover:animate-pulse' />
+              </Link>
+          </div>
         <div className="w-full h-10  flex flex-row justify-between">
           {/* logo de la empresa */}
           <Link to={"/"} className="w-full">
