@@ -38,11 +38,11 @@ export const Imagenes = (imagenes:imagen) => {
         return () => clearInterval(intervalId);
     }, [visible]);
   return (
-    <Link to={`./detalle/${imagenes.id}`} className='w-full  h-auto bg-[#1D2432]  flex flex-row overflow-hidden relative justify-between'>
-        <LazyLoadImage src={imagenes.foto1}  key={imagenes.foto1} alt='imagen' className={`${visible === 0 ? "animate__animated animate__fadeInRight" : " hidden"} w-[100%] h-full   object-cover  `}  />
-        <LazyLoadImage src={imagenes.foto2}  key={imagenes.foto2} alt='imagen' className={`${visible === 1 ? "animate__animated animate__fadeInRight" : " hidden"} w-[100%] h-full   object-cover`}  />
-        <LazyLoadImage src={imagenes.foto4}  key={imagenes.foto4} alt='imagen' className={`${visible === 3 ? "animate__animated animate__fadeInRight" : " hidden"} w-[100%] h-full   object-cover `}  />
-        <LazyLoadImage src={imagenes.foto3}  key={imagenes.foto3} alt='imagen' className={`${visible === 2 ? "animate__animated animate__fadeInRight" : " hidden"} w-[100%] h-full   object-cover `}  />
+    <Link to={`./detalle/${imagenes.id}`} className='w-full  md:h-auto h-[20rem] bg-[#1D2432]  flex flex-row overflow-hidden relative justify-between'>
+        <LazyLoadImage src={imagenes.foto1}  key={imagenes.foto1} alt='imagen' className={`${visible === 0 ? "animate__animated animate__fadeInRight" : " hidden"} w-[100%] h-full  object-contain md:object-cover  `}  />
+        <LazyLoadImage src={imagenes.foto2}  key={imagenes.foto2} alt='imagen' className={`${visible === 1 ? "animate__animated animate__fadeInRight" : " hidden"} w-[100%] h-full  object-contain md:object-cover`}  />
+        <LazyLoadImage src={imagenes.foto4}  key={imagenes.foto4} alt='imagen' className={`${visible === 3 ? "animate__animated animate__fadeInRight" : " hidden"} w-[100%] h-full  object-contain md:object-cover `}  />
+        <LazyLoadImage src={imagenes.foto3}  key={imagenes.foto3} alt='imagen' className={`${visible === 2 ? "animate__animated animate__fadeInRight" : " hidden"} w-[100%] h-full  object-contain md:object-cover `}  />
         <div className={`w-full h-full bg-black/20 absolute flex flex-col  `}>
             <div className={' h-full'}>
                 <div className={' h-5 bg-gradient-to-b from-black'}>
