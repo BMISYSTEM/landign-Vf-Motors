@@ -4,7 +4,6 @@ import { Respuesta, useInventario } from "../Hooks/useInventario";
 import stylos from "../css/inventario.module.css";
 import { TarjetaVehiculo } from "../Components/TarjetasVehiculos/component/TarjetaVehiculo";
 import { Imagenes } from "../Components/TarjetasVehiculos/component/Imagenes";
-import { DatosVehiculo } from "../Components/TarjetasVehiculos/component/DatosVehiculo";
 import { Link } from "react-router-dom";
 import { useState } from "react";
 
@@ -94,6 +93,16 @@ export const HomeInventario = () => {
   const marcasUnicasArray = Array.from(marcasUnicas);
   return (
     <Element name="inventario">
+      <div className='fixed z-50 w-16 h-16 bottom-[5%] md:left-[92%] left-[80%] hover:scale-105 transition-all'>
+              <Link to={'https://wa.me/message/IH5SZDTONQ5MK1'}>
+                <img src={'/Imagenes/whatsapp.png'} alt="" className=' h-auto hover:cursor-pointer hover:animate-pulse' />
+              </Link>
+          </div>
+          <div className='fixed z-50 w-16 bg-sky-800 flex justify-center rounded-full  items-center h-16 bottom-[15%] md:left-[92%] left-[80%] hover:scale-105 transition-all '>
+              <Link to={'https://waze.com/ul?ll=3.397535343008182, -76.54328168393025&navigate=yes'} className="">
+                <img src={'/Imagenes/waze.png'} alt="" className='w-full   h-auto hover:cursor-pointer hover:animate-pulse' />
+              </Link>
+          </div>
       <section className="w-full h-screen flex flex-col gap-5  overflow-hidden  bg-slate-950">
         <div className="w-full h-20  flex flex-row justify-between">
           {/* logo de la empresa */}
@@ -162,7 +171,7 @@ export const HomeInventario = () => {
           <div
             className={`${
               expanFiltros ? "flex" : "hidden md:flex"
-            } bg-[#1D2432] md:w-60 w-full md:h-screen h-[50rem] md:overflow-hidden border-2 border-green-500  flex-col gap-3 rounded-lg p-2  `}
+            } bg-[#1D2432] md:w-60 w-full md:h-auto h-[50rem] md:overflow-hidden border-2 border-green-500  flex-col gap-3 rounded-lg p-2  `}
           >
             <button
               onClick={() => {
@@ -177,7 +186,25 @@ export const HomeInventario = () => {
             >
               Borrar filtros
             </button>
-           
+            <h1 className="md:text-2xl text-lg font-bold text-white">
+              Tipo de vehiculo
+            </h1>
+            <button
+              onClick={() =>
+                setBusqueda('hibrido')
+              }
+              className="border-2 rounded-xl border-sky-500 p-2 md:text-lg text-sm text-slate-200 font-bold hover:bg-sky-500 transition-all"
+            >
+              Hibrido
+            </button>
+            <button
+              onClick={() =>
+                setBusqueda('electrico')
+              }
+              className="border-2 rounded-xl border-sky-500 p-2 md:text-lg text-sm text-slate-200 font-bold hover:bg-sky-500 transition-all"
+            >
+              Electrico
+            </button>
             <h1 className="md:text-2xl text-lg font-bold text-white">
               Precios
             </h1>
