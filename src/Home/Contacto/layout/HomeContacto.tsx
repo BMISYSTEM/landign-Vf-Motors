@@ -1,7 +1,10 @@
 import axios, { isAxiosError } from "axios";
 import React, { useState } from "react";
 import { Element } from "react-scroll";
-
+import wpp from '../assets/whatsapp.png'
+import apagado from '../assets/apagado.png'
+import prendido from '../assets/prendido.png'
+import { Link } from "react-router-dom";
 export interface Errors {
     message: string;
     errors:  ErrorsClass;
@@ -27,6 +30,10 @@ export const HomeContacto = () => {
   const [cargando, setcargando] = useState(false);
   const [respuesta, setRespuesta] = useState<Succes |null>(null);
   const [error, setError] = useState<Errors | null>();
+  const [pregunta,setPregunta] = useState<boolean>(false)
+  const [reclamo,setreclamo] = useState<boolean>(false)
+  const [queja,setqueja] = useState<boolean>(false)
+  const [sugerencia,setsugerencia] = useState<boolean>(false)
   const handleclickForm: React.FormEventHandler<HTMLFormElement> = async (
     e
   ) => {
@@ -57,16 +64,79 @@ export const HomeContacto = () => {
   };
   return (
     <Element name="contactenos">
-      <section className="w-full h-screen flex flex-col gap-3  justify-center items-center p-2">
+      <section className="w-full h-full flex flex-col gap-3  justify-center items-center p-2 mt-10">
+          <p className="w-full text-2xl font-bold text-white text-center ">
+            Contacta a un asesor
+          </p>
+          <Link to={"https://wa.me/message/IH5SZDTONQ5MK1"} className="text-white md:w-1/2 w-full  font-bold text-xl border-2 border-green-500 bg-green-500/50 hover:scale-105 transition-all p-2 flex flex-row gap-4 justify-center">
+            <img src={wpp} alt="" className="w-8 h-8" />
+            <p>Whatsapp</p>
+          </Link>
+          <p className="text-lg text-slate-200 ">Digita todos los campos obligatorios y selecciona una opcion que desees.</p>
+          
+          <div className="w-full md:w-1/2 flex flex-row gap-5 justify-between items-center">
+            <button onClick={()=>{
+              setPregunta(!pregunta)
+              setreclamo(false)
+              setqueja(false)
+              setsugerencia(false)
+              }} className="flex flex-col gap-2 justify-center items-center">
+              <p className="text-lg font-bold text-slate-200">Pregunta</p>
+              {pregunta ? 
+                <img src={prendido} alt="" />
+              :
+                <img src={apagado} alt="" />
+              }
+            </button>
+            <button onClick={()=>{
+              setPregunta(false)
+              setreclamo(!reclamo)
+              setqueja(false)
+              setsugerencia(false)
+            }} className="flex flex-col gap-2 justify-center items-center">
+              <p className="text-lg font-bold text-slate-200">Reclamo</p>
+              {reclamo ? 
+                <img src={prendido} alt="" />
+              :
+                <img src={apagado} alt="" />
+              }
+            </button>
+            <button onClick={()=>{
+              setPregunta(false)
+              setreclamo(false)
+              setqueja(!queja)
+              setsugerencia(false)
+            }} className="flex flex-col gap-2 justify-center items-center">
+              <p className="text-lg font-bold text-slate-200">Queja</p>
+              {queja ? 
+                <img src={prendido} alt="" />
+              :
+                <img src={apagado} alt="" />
+              }
+            </button>
+            <button onClick={()=>{
+              setPregunta(false)
+              setreclamo(false)
+              setqueja(false)
+              setsugerencia(!sugerencia)
+            }} className="flex flex-col gap-2 justify-center items-center">
+              <p className="text-lg font-bold text-slate-200">Sugerencia</p>
+              {sugerencia ? 
+                <img src={prendido} alt="" />
+              :
+                <img src={apagado} alt="" />
+              }
+            </button>
+
+          </div>
         <form
           onSubmit={handleclickForm}
           action=""
           className="md:w-1/3 w-full h-full flex flex-col p-2 gap-2 justify-center"
         >
-          <h1 className="text-2xl font-bold text-white text-center mb-10 ">
-            Contactenos
-          </h1>
           <p className={`${respuesta?.succes ? null : 'hidden '} text-green-500 text-center`}>{respuesta?.succes}</p>
+          
+          
         <p className={`${cargando ? null : 'hidden '} text-green-500 animate-bounce text-center`}>Enviando...</p>
           <p
             className={`${
