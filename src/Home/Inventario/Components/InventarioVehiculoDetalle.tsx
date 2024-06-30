@@ -1,3 +1,4 @@
+import { useState } from "react"
 import { Link, useParams } from "react-router-dom"
 import {  useInventario } from "../Hooks/useInventario"
 import 'animate.css'
@@ -10,7 +11,7 @@ import kilometraje from './TarjetasVehiculos/assets/kilometraje.png'
 import linea from './TarjetasVehiculos/assets/linea.png'
 import soat from './TarjetasVehiculos/assets/soat.png'
 import tecnomecanica from './TarjetasVehiculos/assets/tecnomecanica.png'
-import { useState } from "react"
+import whtpp from '../Assets/whtpp.png';
 
 export interface Respuesta {
   succes: Succe[];
@@ -73,9 +74,9 @@ export const InventarioVehiculoDetalle = () => {
     };
   return (
     <section className="w-full md:h-screen h-full bg-slate-950  flex md:flex-row flex-col md:overflow-hidden ">
-        <section className="md:w-1/3 w-full flex flex-col gap-3 p-4  h-full overflow-auto justify-center ">
-          <div className="w-full h-full  flex flex-col ">
-            <img src="/Imagenes/logo.png" alt="" className="w-40 "/>
+        <section className="md:w-1/3 w-full flex flex-col gap-3 p-4  h-auto overflow-auto  ">
+          <div className="w-full md:h-96 h-auto  flex flex-col  ">
+            <img src="/Imagenes/logo.png" alt="" className="w-40 h-auto "/>
             <Link to={'/inventario'} className="w-full flex flex-row gap-2 items-center">
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="w-6 h-6 text-sky-500">
                 <path fill-rule="evenodd" d="M12 2.25c-5.385 0-9.75 4.365-9.75 9.75s4.365 9.75 9.75 9.75 9.75-4.365 9.75-9.75S17.385 2.25 12 2.25Zm-4.28 9.22a.75.75 0 0 0 0 1.06l3 3a.75.75 0 1 0 1.06-1.06l-1.72-1.72h5.69a.75.75 0 0 0 0-1.5h-5.69l1.72-1.72a.75.75 0 0 0-1.06-1.06l-3 3Z" clip-rule="evenodd" />
@@ -155,18 +156,29 @@ export const InventarioVehiculoDetalle = () => {
               </div>
           </div>
                 {/* contacto de asesor */}
-                <div className="w-full h-full">
+                <div className="w-full h-full flex flex-col gap-3">
                   {/* texto */}
                   <div className="w-full">
                     <p className="text-2xl font-bold text-white">Contacte un asesor</p>
                     <p className="text-sm text-slate-400">Selecciona la opcion de preferencia para que un asesor se comunique con usted</p>
                   </div>
-                  <button className="text-white bg-green-600 p-2 font-bold w-full">
-                    WHATSAPP
-                  </button>
+                  <a href="https://wa.me/message/IH5SZDTONQ5MK1" className="hover:scale-105 transition-all text-white bg-green-600 p-2 font-bold w-full flex flex-row gap-5 justify-center">
+                    <img src={whtpp} alt="" className="w-6 h-6" />
+                    <p>WHATSAPP</p>
+                  </a>
+                  <div className="w-full flex flex-row gap-2">
+                    <a href="https://wa.me/message/IH5SZDTONQ5MK1" className="hover:scale-105 transition-all text-white bg-indigo-600 p-2 font-bold w-full flex flex-row gap-5 justify-center">
+                      {/* <img src={whtpp} alt="" className="w-6 h-6" /> */}
+                      <p>RETOMA</p>
+                    </a>
+                    <a href="https://wa.me/message/IH5SZDTONQ5MK1" className="hover:scale-105 transition-all text-white bg-sky-600 p-2 font-bold w-full flex flex-row gap-5 justify-center">
+                      {/* <img src={whtpp} alt="" className="w-6 h-6" /> */}
+                      <p>FINANCIACIÓN</p>
+                    </a>
+                  </div>
                 </div>
         </section>
-        <section className="md:w-2/3 w-full h-full flex flex-col   relative">
+        <section className="md:w-2/3 w-full md:h-full h-auto flex flex-col   relative">
             <div className="w-full h-full ">
                 <img src={"https://public.cartmots.com" + vehiculos?.succes[0].foto1} alt=""  className={`${img === 1 ? 'animate__animated animate__fadeIn' : 'hidden'}`}/>
                 <img src={"https://public.cartmots.com" + vehiculos?.succes[0].foto2} alt=""  className={`${img === 2 ? 'animate__animated animate__fadeIn' : 'hidden'}`}/>
@@ -176,17 +188,17 @@ export const InventarioVehiculoDetalle = () => {
             {/* super pocicion */}
             <div className="absolute w-full h-full bg-black/40 z-50 flex items-end ">
                 {/* carrusel de imagenes disponibles */}
-                <div className="w-full h-40  flex bg-black/30 justify-center gap-4 backdrop-blur-sm ">
-                  <button onClick={()=>setimg(1)} className=" w-40 h-40 flex flex-row gap-4 items-center ">
+                <div className="w-full md:h-40 h-20  flex bg-black/30 justify-center gap-4 backdrop-blur-sm ">
+                  <button onClick={()=>setimg(1)} className=" w-40 md:h-40 md:w-auto h-20 flex flex-row gap-4 items-center ">
                     <img src={"https://public.cartmots.com" + vehiculos?.succes[0].foto1} alt="" className="w-full h-[90%] object-fill bg-red-500" />
                   </button>
-                  <button onClick={()=>setimg(2)} className=" w-40 h-40 flex flex-row gap-4 items-center ">
+                  <button onClick={()=>setimg(2)} className=" w-40 md:h-40 md:w-auto h-20  flex flex-row gap-4 items-center ">
                     <img src={"https://public.cartmots.com" + vehiculos?.succes[0].foto2} alt="" className="w-full h-[90%] object-fill bg-red-500" />
                   </button>
-                  <button onClick={()=>setimg(3)} className=" w-40 h-40 flex flex-row gap-4 items-center ">
+                  <button onClick={()=>setimg(3)} className=" w-40 md:h-40 md:w-auto h-20  flex flex-row gap-4 items-center ">
                     <img src={"https://public.cartmots.com" + vehiculos?.succes[0].foto3} alt="" className="w-full h-[90%] object-fill bg-red-500" />
                   </button>
-                  <button onClick={()=>setimg(4)} className=" w-40 h-40 flex flex-row gap-4 items-center ">
+                  <button onClick={()=>setimg(4)} className=" w-40 md:h-40 md:w-auto h-20  flex flex-row gap-4 items-center ">
                     <img src={"https://public.cartmots.com" + vehiculos?.succes[0].foto4} alt="" className="w-full h-[90%] object-fill bg-red-500" />
                   </button>
                 </div>
