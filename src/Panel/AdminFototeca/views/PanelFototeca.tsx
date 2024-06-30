@@ -20,9 +20,11 @@ export const PanelFototeca = () => {
       setImagen(e.target.files[0]);
     }
   };
+
   const handleClickForm: React.FormEventHandler<HTMLFormElement> = async (
     e
   ) => {
+
     e.preventDefault();
     const datos = {
       imagen: imagen,
